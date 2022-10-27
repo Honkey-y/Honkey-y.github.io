@@ -1,0 +1,1865 @@
+<!--
+ * @Author: error: git config user.name && git config user.email & please set dead value or install git
+ * @Date: 2022-10-16 17:15:32
+ * @LastEditors: error: git config user.name && git config user.email & please set dead value or install git
+ * @LastEditTime: 2022-10-16 22:40:59
+ * @FilePath: \blog-vue\themes\themesparticlex\layout\layout.ejs
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>SpringBoot笔记 | Yang的个人博客</title>
+        <meta name="author" content="CarSon Yang">
+        <meta name="description" content="">
+        <meta name="keywords" content="HEXO | CMS | CRM">
+        <link rel="icon" href="/images/touxiang.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.2.0/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+        <script src="https://cdn.staticfile.org/animejs/3.2.1/anime.min.js"></script>
+    <meta name="generator" content="Hexo 5.4.2"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Yang的个人博客</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;主页</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;关于我</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;购买</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;支持</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;友链</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Yang的个人博客</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">主页</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">关于我</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">购买</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">支持</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">友链</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1>SpringBoot笔记 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/10/26
+        </span>
+        
+        
+    </div>
+    <div class="content" v-pre>
+        <p>之前学习SpringBoot的笔记，整理到自己的博客中！</p>
+<span id="more"></span>
+<h2><span id="目录">📖目录：</span></h2><!-- toc -->
+
+<ul class="md-toc">
+<li><a href="#ssm%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA">SSM环境搭建</a></li>
+<li><a href="#%E7%8E%B0%E6%9C%89ssm%E5%BC%80%E5%8F%91%E5%AD%98%E5%9C%A8%E9%97%AE%E9%A2%98">现有SSM开发存在问题</a></li>
+<li><a href="#springboot%E7%9A%84%E5%BC%95%E8%A8%80">SpringBoot的引言</a></li>
+<li><a href="#springboot%E7%9A%84%E4%BC%98%E5%8A%BF">SpringBoot的优势</a></li>
+<li><a href="#springboot%E7%9A%84%E7%BA%A6%E5%AE%9A">SpringBoot的约定</a></li>
+<li><a href="#%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA">环境搭建</a></li>
+<li><a href="#%E7%9B%B8%E5%85%B3%E6%B3%A8%E8%A7%A3%E8%AF%B4%E6%98%8E">相关注解说明</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">配置文件</a></li>
+<li><a href="#%E5%B7%A5%E5%8E%82%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1">工厂创建对象</a></li>
+<li><a href="#%E5%B1%9E%E6%80%A7%E6%B3%A8%E5%85%A5">属性注入</a></li>
+<li><a href="#jsp%E6%A8%A1%E6%9D%BF%E9%9B%86%E6%88%90">JSP模板集成</a></li>
+<li><a href="#%E6%95%B4%E5%90%88mybatis%E6%A1%86%E6%9E%B6">整合Mybatis框架</a></li>
+<li><a href="#%E6%9C%AC%E5%9C%B0%E6%B5%8B%E8%AF%95">本地测试</a></li>
+<li><a href="#%E7%83%AD%E9%83%A8%E7%BD%B2%E5%B7%A5%E5%85%B7">热部署工具</a></li>
+<li><a href="#%E6%97%A5%E5%BF%97%E5%A4%84%E7%90%86">日志处理</a></li>
+<li><a href="#%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B">切面编程</a></li>
+<li><a href="#%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD">文件上传下载</a></li>
+<li><a href="#%E6%8B%A6%E6%88%AA%E5%99%A8">拦截器</a></li>
+<li><a href="#war%E5%8C%85%E9%83%A8%E7%BD%B2">war包部署</a></li>
+<li><a href="#jar%E5%8C%85%E9%83%A8%E7%BD%B2">Jar包部署</a></li>
+<li><a href="#thymeleaf">Thymeleaf</a></li>
+<li><a href="#restful">RestFul</a></li>
+<li><a href="#%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86">异常处理</a></li>
+<li><a href="#cors-%E8%B7%A8%E5%9F%9F">CORS 跨域</a></li>
+<li><a href="#jasypt-%E5%8A%A0%E5%AF%86">Jasypt 加密</a></li>
+</ul>
+<!-- tocstop -->
+
+<h2><span id="ssm环境搭建">SSM环境搭建</span></h2><ul>
+<li>spring </li>
+<li>springmvc</li>
+<li>mybatis</li>
+<li>spring springmvc mybatis  简单功能   员工添加 查询  所有</li>
+</ul>
+<pre><code class="markdown"># 项目
+-  需求分析  概要设计(库表设计)   详细设计(验证库表正确性)  编码(环境搭建+业务代码)  测试  部署上线
+
+# 员工添加 查询所有功能  SSM
+- 库表   库: ssm   数据库:mysql  表: id name birthday salary
+
+# 编码 环境搭建 ssm  spring  springmvc   一个团队开发 无缝整合
+- springmvc  spring  mybatis
+</code></pre>
+<p> <strong>引入依赖</strong></p>
+<pre><code class="xml">&lt;dependencies&gt;
+        &lt;!--junit--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;junit&lt;/groupId&gt;
+            &lt;artifactId&gt;junit&lt;/artifactId&gt;
+            &lt;version&gt;4.11&lt;/version&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+
+        &lt;!--spring--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-core&lt;/artifactId&gt;
+            &lt;version&gt;5.3.6&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-beans&lt;/artifactId&gt;
+            &lt;version&gt;5.3.6&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-aop&lt;/artifactId&gt;
+            &lt;version&gt;5.3.6&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-context&lt;/artifactId&gt;
+            &lt;version&gt;5.3.6&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-context-support&lt;/artifactId&gt;
+            &lt;version&gt;5.3.6&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-jdbc&lt;/artifactId&gt;
+            &lt;version&gt;5.3.6&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-web&lt;/artifactId&gt;
+            &lt;version&gt;5.3.6&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;!--spring web mvc--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-webmvc&lt;/artifactId&gt;
+            &lt;version&gt;5.3.6&lt;/version&gt;
+        &lt;/dependency&gt;
+
+
+        &lt;!--druid--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.alibaba&lt;/groupId&gt;
+            &lt;artifactId&gt;druid&lt;/artifactId&gt;
+            &lt;version&gt;1.2.4&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;!--mysql--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;mysql&lt;/groupId&gt;
+            &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+            &lt;version&gt;5.1.38&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;!--mybatis--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.mybatis&lt;/groupId&gt;
+            &lt;artifactId&gt;mybatis&lt;/artifactId&gt;
+            &lt;version&gt;3.5.6&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.mybatis&lt;/groupId&gt;
+            &lt;artifactId&gt;mybatis-spring&lt;/artifactId&gt;
+            &lt;version&gt;2.0.6&lt;/version&gt;
+        &lt;/dependency&gt;
+
+
+        &lt;!--  jackson--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
+            &lt;artifactId&gt;jackson-databind&lt;/artifactId&gt;
+            &lt;version&gt;2.9.3&lt;/version&gt;
+        &lt;/dependency&gt;
+
+
+        &lt;!-- aspectj --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.aspectj&lt;/groupId&gt;
+            &lt;artifactId&gt;aspectjweaver&lt;/artifactId&gt;
+            &lt;version&gt;1.9.5&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;!--aspectj--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.aspectj&lt;/groupId&gt;
+            &lt;artifactId&gt;aspectjrt&lt;/artifactId&gt;
+            &lt;version&gt;1.9.5&lt;/version&gt;
+        &lt;/dependency&gt;
+
+    &lt;/dependencies&gt;
+</code></pre>
+<p> <strong>创建spring配置</strong></p>
+<pre><code class="xml">&lt;!--开启注解扫描--&gt;
+&lt;context:component-scan base-package=&quot;com.baizhi.service&quot;&gt;
+  &lt;context:exclude-filter type=&quot;aspectj&quot; expression=&quot;com.baizhi.controller..*&quot;/&gt;
+&lt;/context:component-scan&gt;
+
+&lt;!--  创建DataSource--&gt;
+&lt;bean id=&quot;dataSource&quot; class=&quot;com.alibaba.druid.pool.DruidDataSource&quot;&gt;
+  &lt;property name=&quot;driverClassName&quot; value=&quot;com.mysql.jdbc.Driver&quot;/&gt;
+  &lt;property name=&quot;url&quot; value=&quot;jdbc:mysql://localhost:3306/ssm?characterEncoding=UTF-8&quot;/&gt;
+  &lt;property name=&quot;username&quot; value=&quot;root&quot;/&gt;
+  &lt;property name=&quot;password&quot; value=&quot;root&quot;/&gt;
+&lt;/bean&gt;
+
+&lt;!--  创建 SQLSessionFactoryBean --&gt;
+&lt;bean id=&quot;sqlSessionFactory&quot; class=&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;&gt;
+  &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;/&gt;
+  &lt;property name=&quot;mapperLocations&quot; value=&quot;classpath:com/baizhi/mapper/*.xml&quot;/&gt;
+  &lt;property name=&quot;typeAliasesPackage&quot; value=&quot;com.baizhi.entity&quot;/&gt;
+&lt;/bean&gt;
+
+&lt;!--  创建dao --&gt;
+&lt;bean class=&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;&gt;
+  &lt;property name=&quot;sqlSessionFactoryBeanName&quot; value=&quot;sqlSessionFactory&quot;/&gt;
+  &lt;property name=&quot;basePackage&quot; value=&quot;com.baizhi.dao&quot;/&gt;
+&lt;/bean&gt;
+
+&lt;!--  创建事务管理器--&gt;
+&lt;bean id=&quot;transactionManager&quot; class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;
+  &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;/&gt;
+&lt;/bean&gt;
+
+&lt;!-- 开启注解事务生效--&gt;
+&lt;tx:annotation-driven transaction-manager=&quot;transactionManager&quot;/&gt;
+</code></pre>
+<p> <strong>创建springmvc配置</strong></p>
+<pre><code class="xml">&lt;!--    注解扫描--&gt;
+&lt;context:component-scan base-package=&quot;com.baizhi.controller&quot;/&gt;
+
+&lt;!-- 开启注册驱动--&gt;
+&lt;mvc:annotation-driven/&gt;
+
+&lt;!-- 配置视图解析器--&gt;
+&lt;bean class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt;
+  &lt;property name=&quot;prefix&quot; value=&quot;/&quot;/&gt;
+  &lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot;/&gt;
+&lt;/bean&gt;
+</code></pre>
+<p> <strong>配置web</strong>.xml</p>
+<pre><code class="xml">&lt;!--配置工厂配置--&gt;
+&lt;context-param&gt;
+  &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+  &lt;param-value&gt;classpath:spring.xml&lt;/param-value&gt;
+&lt;/context-param&gt;
+
+&lt;listener&gt;
+  &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;
+&lt;/listener&gt;
+
+&lt;!--配置springmvc--&gt;
+&lt;servlet&gt;
+  &lt;servlet-name&gt;springmvc&lt;/servlet-name&gt;
+  &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
+  &lt;init-param&gt;
+    &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+    &lt;param-value&gt;classpath:springmvc.xml&lt;/param-value&gt;
+  &lt;/init-param&gt;
+&lt;/servlet&gt;
+&lt;servlet-mapping&gt;
+  &lt;servlet-name&gt;springmvc&lt;/servlet-name&gt;
+  &lt;url-pattern&gt;/&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;
+</code></pre>
+<h2><span id="现有ssm开发存在问题">现有SSM开发存在问题</span></h2><ul>
+<li>大量maven冗余配置</li>
+<li>每次构建项目都要书写大量相同配置极大浪费了项目开发时间</li>
+<li>每次整合第三方技术都需要编写相关配置文件</li>
+<li>项目测试每次都需要部署到tomcat</li>
+</ul>
+<blockquote>
+<p><strong>注意:这就是早期的SSM或者SSH开发存在问题,是不是很麻烦☹️☹️☹️</strong></p>
+</blockquote>
+<h2><span id="springboot的引言">SpringBoot的引言</span></h2><p>Spring Boot是由<code>Pivotal团队提供的全新框架</code>，其设计目的是用来<code>简化Spring应用的 初始搭建以及开发过程</code>。该框架使用了<code>特定的方式来进行配置</code>，从而使开发人员不 再需要定义样板化的配置。通过这种方式，Spring Boot致力于在蓬勃发展的快速应 用开发领域(rapid application development)成为领导者。</p>
+<p>Spring Boot 全新框架  作用: 简化spring应用初始搭建和开发过程</p>
+<p>如何简化:  开发人员使用springboot只要基于特定方式进行配置  简化spring使用</p>
+<p>SpringBoot 微框架:   5分钟 完成之前ssm中环境</p>
+<p><code>springboot(微框架) = springmvc(控制器) + spring core(项目管理)</code></p>
+<h2><span id="springboot的优势">SpringBoot的优势</span></h2><ol>
+<li><code>创建完整的独立的Spring应用程序  </code>  spring springmvc  只有一个容器</li>
+<li><code>嵌入的Tomcat，无需部署WAR文件</code>  springboot 内嵌tomcat  应用跑在内嵌服务器</li>
+<li><code>简化Maven配置,自动配置Spring Springmvc,没有XML配置</code>  几个依赖  <ol>
+<li>用来springboot spring应用在无xml</li>
+</ol>
+</li>
+</ol>
+<h2><span id="springboot的约定">SpringBoot的约定</span></h2><ul>
+<li><p><code>springboot 项目中必须在src/main/resources中放入application.yml(.properties)核心配置文件  名字必须为:application</code></p>
+</li>
+<li><p><code>springboot 项目中必须在src/main/java中所有子包之外构建全局入口类型,xxApplication,入口类一个springboot项目只能有一个</code></p>
+</li>
+</ul>
+<h2><span id="环境搭建">环境搭建</span></h2><p> <strong>环境要求</strong></p>
+<pre><code class="markdown"># 1.System Requirements
+        JDK1.8+
+        MAVEN3.2+  
+        Spring Framework 5.x+ 
+
+# 2.ServletContainers: 
+        Tomcat 9.0+
+
+# 3.开发工具
+        IDEA    2021版本 
+</code></pre>
+<pre><code> **新建项目中引入依赖**
+</code></pre>
+<pre><code class="xml">    &lt;!--继承springboot的父项目--&gt;
+    &lt;parent&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+        &lt;version&gt;2.5.0&lt;/version&gt;
+    &lt;/parent&gt;
+
+    &lt;dependencies&gt;
+          &lt;!--引入springboot的web支持--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+</code></pre>
+<pre><code> **引入配置文件**
+</code></pre>
+<p>​        <code>项目中 src/main/resources/application.yml</code></p>
+<pre><code> **编写入口类**
+</code></pre>
+<pre><code class="java">//在项目中如下的包结构中创建入口类 Application
+/*
+    com
+        +| baizhi
+*/
+    @SpringBootApplication
+    public class Application &#123;
+      public static void main(String[] args) &#123;
+        SpringApplication.run(Application.class,args);
+      &#125;
+    &#125;
+</code></pre>
+<pre><code> **运行main启动项目**
+</code></pre>
+<pre><code class="java">o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+com.baizhi.Application : Started Application in 2.152 seconds (JVM running for 2.611)
+//说明:  出现以上日志说明启动成功
+</code></pre>
+<blockquote>
+<p><strong>注意:到这里项目环境已经搭建成功了,看看仅仅需要5分钟😄😁😁</strong></p>
+</blockquote>
+<pre><code> **建包并创建控制器**
+</code></pre>
+<pre><code class="java">//在项目中创建指定的包结构
+/*
+     com
+        +| baizhi
+                +| controller */ 
+                    @Controller
+                  @RequestMapping(&quot;/hello&quot;)
+                  public class HelloController &#123;
+                    @RequestMapping(&quot;/hello&quot;)
+                    @ResponseBody
+                    public String hello()&#123;
+                          System.out.println(&quot;======hello world=======&quot;);
+                      return &quot;hello&quot;;
+                    &#125;
+                  &#125;
+                                         
+</code></pre>
+<pre><code> **访问项目** 
+</code></pre>
+<pre><code class="markdown"># 注意: springboot的项目启动默认项目名
+- 访问路径:  http://localhost:8080/hello/hello
+</code></pre>
+<p> <strong>修改内嵌服务器端口</strong></p>
+<pre><code class="yml">server:
+  port: 8989
+</code></pre>
+<p> <strong>修改应用名称</strong></p>
+<pre><code class="yml">server:
+  servlet:
+    context-path: /springboot_day1
+</code></pre>
+<h2><span id="相关注解说明">相关注解说明</span></h2><pre><code class="markdown"># 入口类 SpringApplication
+- SpringBootApplication: 全局入口类 有且只能有一个
+- mian 函数参数可以在启动时指定jvm参数覆盖默认配置
+
+# @SpringBootApplication 注解等价于: 
+- @SpringBootConfiguration           标识这是一个springboot的配置类,默认自定配置Spring环境
+- @EnableAutoConfiguration                      自动与项目中集成的第三方技术进行集成
+- @ComponentScan                                          扫描入口类所在子包以及子包后代包中注解    
+</code></pre>
+<h2><span id="配置文件">配置文件</span></h2><p> <strong>配置文件的拆分</strong></p>
+<p>说明: 在实际开发过程中生产环境和测试环境有可能是不一样的 因此将生产中的配置和测试中的配置拆分开,是非常必要的在springboot中也提供了配置文件拆分的方式. 这里以生产中项名名称不一致为例:</p>
+<ul>
+<li><p><strong>生产中项目名为: <code>springboot</code></strong></p>
+</li>
+<li><p><strong>测试中项目名为: <code>springboot_day1</code></strong></p>
+</li>
+<li><p><strong>端口同时为:   8080</strong></p>
+</li>
+</ul>
+<pre><code class="yml"># 主配置文件:
+- application.yml    #用来书写相同的的配置
+                server:
+                    port: 8080 #生产和测试端口一致
+                   
+# 生产配置文件:
+- application-pord.yml #prod为配置文件简名
+                server:
+                    context-path: /cmfz
+    
+#测试配置文件:
+-    application-dev.yml  #dev为配置文件简名
+                server:
+                    context-path: /springboot
+
+#在主配置中指定那个环境生效配置
+spring:
+  profiles:
+    active: dev #指定那个环境配置生效 dev为环境配置文件的简名
+</code></pre>
+<p> <strong>启动指定配置文件</strong></p>
+<p>说明: 往往在企业级开发过程中为SpringBoot应用启动时指定一个完整外部配置也是经常用到的,在SpringBoot中也提供这个方式来启动项目如:</p>
+<pre><code class="markdown"># 1.创建一个完整的配置文件
+</code></pre>
+<pre><code class="markdown"># 2.启动时指定配置文件位置
+</code></pre>
+<hr>
+<h2><span id="工厂创建对象">工厂创建对象</span></h2><p> <strong>创建单个对象</strong></p>
+<p>​    在springboot中可以管理单个对象可以直接使用spring框架中注解形式创建。</p>
+<ul>
+<li><strong><code>@Component</code></strong> 通用的对象创建注解<ul>
+<li><code>@Controller</code>  用来创建控制器对象</li>
+<li><code>@Service</code>      用来创建业务层对象</li>
+<li><code>@Repository</code> 用来创建DAO层对象<ul>
+<li>以上注解都有value属性，value属性用来指定工厂中对象名称</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="java">@Service
+public class DemoServiceImpl implements UserService&#123;
+  //doing....
+&#125;    
+</code></pre>
+<pre><code class="markdown"># 2.通过工厂创建之后可以在使用处注入该对象
+</code></pre>
+<pre><code class="java">@Controller
+@RequestMapping(&quot;hello&quot;)
+public class HelloController &#123;
+    @Autowired
+    private DemoService demoService;
+    //doing...
+&#125;
+</code></pre>
+<p> <strong>创建多个对象</strong></p>
+<p>​    如何在springboot中像spring框架一样通过xml创建多个对象,在SpringBoot中也提供了相同注解如**<code>@Configuration + @Bean</code>**注解进行创建</p>
+<ul>
+<li><strong><code>@Configuration</code></strong>   代表这是一个spring的配置类相当于Spring.xml配置文件</li>
+<li><strong><code>@Bean</code></strong>   用来在工厂中创建这个@Bean注解标识的对象  <ul>
+<li>默认使用@Bean创建对象在工厂中唯一标识为<strong>方法名称</strong></li>
+<li>修改在工厂中对象标识可以在使用**@Bean(“工厂中名字”)指定一个名字**</li>
+</ul>
+</li>
+</ul>
+<pre><code class="markdown"># 1.管理复杂对象的创建
+</code></pre>
+<pre><code class="java">@Configuration
+public class Beans &#123;
+    @Bean
+    public Calendar calendar()&#123;
+        return Calendar.getInstance();
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="markdown"># 2.使用复杂对象
+</code></pre>
+<pre><code class="java">@Controller
+@RequestMapping(&quot;hello&quot;)
+public class HelloController &#123;
+    @Autowired
+    private Calendar calendar;
+    ......
+&#125;
+</code></pre>
+<pre><code class="markdown"># 注意: 
+                1.@Configuration 用来在工厂中一次性创建多个对象
+              2.@Component     用来创建单个对象                     
+</code></pre>
+<hr>
+<h2><span id="属性注入">属性注入</span></h2><p> <strong>基本属性注入</strong></p>
+<pre><code class="markdown"># 1.@Value 属性注入               [重点]
+</code></pre>
+<pre><code class="java">@RestController
+public class HelloController &#123;
+    //基本类型+String类型+日期类型
+      @Value(&quot;$&#123;name&#125;&quot;)
+    private String name;
+    @Value(&quot;$&#123;age&#125;&quot;)
+    private Integer age;
+    @Value(&quot;$&#123;sex&#125;&quot;)
+    private Boolean sex;
+    @Value(&quot;$&#123;price&#125;&quot;)
+    private Double price;
+    @Value(&quot;$&#123;bir&#125;&quot;)
+    private Date bir;
+        //注入数组
+    @Value(&quot;$&#123;qqs&#125;&quot;)
+    private String[] qqs;
+      //注入list
+    @Value(&quot;$&#123;lists&#125;&quot;)
+    private List&lt;String&gt; lists;
+      //注入maps
+    @Value(&quot;#&#123;$&#123;maps&#125;&#125;&quot;)
+    private Map&lt;String,String&gt; maps;
+&#125;
+</code></pre>
+<pre><code class="markdown"># 2.在配置文件中定义注入值
+</code></pre>
+<pre><code class="yml">name: 小陈
+age: 23
+price: 23.23
+sex: true
+bir: 2012/12/12
+
+qqs: 123,3434,3434
+lists: xiaochen,xiaoming,xiaosan
+
+maps: &quot;&#123;&#39;aa&#39;:&#39;1234&#39;,&#39;bb&#39;:&#39;2344&#39;&#125;&quot;
+</code></pre>
+<ul>
+<li><strong><code>注意: 这里面map集合注入比较特殊</code></strong></li>
+</ul>
+<p> <strong>对象方式注入</strong></p>
+<p><strong><code>注意: 这种方式必须提供SET方法</code></strong></p>
+<pre><code class="markdown"># 1. @ConfigurationProperties(prefix=&quot;前缀&quot;)
+</code></pre>
+<pre><code class="java">@Component
+@ConfigurationProperties(prefix = &quot;user&quot;)
+public class User &#123;
+    private String id;
+    private String name;
+    private Integer age;
+    private String  bir;
+    //set 方法一定要提供
+&#125;
+</code></pre>
+<pre><code class="markdown"># 2. 编写配置文件
+</code></pre>
+<pre><code class="yml">user:
+  id: 24
+  name: xiaohei
+  age: 23
+  bir: 2012/12/12
+</code></pre>
+<pre><code class="markdown"># 3. 引入依赖构建自定义注入元数据
+</code></pre>
+<pre><code class="xml">&lt;dependency&gt;
+  &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+  &lt;artifactId&gt;spring-boot-configuration-processor&lt;/artifactId&gt;
+  &lt;optional&gt;true&lt;/optional&gt;
+&lt;/dependency&gt;
+</code></pre>
+<hr>
+<h2><span id="jsp模板集成">JSP模板集成</span></h2><p>在SpringBoot框架中默认模板推荐使用Thymeleaf模板,这里我们优先讲与JSP模板集成</p>
+<p> <strong>引入jsp的集成jar包</strong></p>
+<pre><code class="xml">&lt;!--c标签库--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;jstl&lt;/groupId&gt;
+    &lt;artifactId&gt;jstl&lt;/artifactId&gt;
+    &lt;version&gt;1.2&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;!--让内嵌tomcat具有解析jsp功能--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.tomcat.embed&lt;/groupId&gt;
+    &lt;artifactId&gt;tomcat-embed-jasper&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p> <strong>引入jsp运行插件</strong></p>
+<pre><code class="xml">&lt;build&gt;
+    &lt;finalName&gt;springboot_day1&lt;/finalName&gt;
+    &lt;!--引入springboot插件 可以正确打包  显示jsp--&gt;
+    &lt;plugins&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/build&gt;
+</code></pre>
+<p> <strong>配置视图解析器</strong></p>
+<pre><code class="yml">#在配置文件中引入视图解析器
+spring:
+  mvc:
+    view:
+      prefix: /     # /代表访问项目中webapp中页面
+      suffix: .jsp 
+</code></pre>
+<p> <strong>第一种方式使用插件启动访问JSP页面</strong></p>
+<p> <strong>第二种方式使用idea中指定工作目录启动</strong> 访问JSP</p>
+<p> <strong>启动项目测试</strong></p>
+<pre><code class="http">http://localhost:8989/index.jsp
+</code></pre>
+<p> <strong>修改jsp无须重启应用</strong></p>
+<pre><code class="yml">server:
+  servlet:
+    jsp:
+      init-parameters:
+        development: true
+</code></pre>
+<hr>
+<h2><span id="整合mybatis框架">整合Mybatis框架</span></h2><pre><code> **引入依赖**
+</code></pre>
+<pre><code class="xml">&lt;dependency&gt;
+  &lt;groupId&gt;com.alibaba&lt;/groupId&gt;
+  &lt;artifactId&gt;druid&lt;/artifactId&gt;
+  &lt;version&gt;1.2.4&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+  &lt;groupId&gt;mysql&lt;/groupId&gt;
+  &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+  &lt;version&gt;5.1.38&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;!--整合mybatis--&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;
+  &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;
+  &lt;version&gt;2.1.4&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;!--
+  说明:由于springboot整合mybatis版本中默认依赖mybatis 因此不需要额外引入mybati版本,否则会出现冲突`--&gt;
+</code></pre>
+<pre><code> **配置配置文件**
+</code></pre>
+<pre><code class="yml">spring:
+  mvc:
+    view:
+      prefix: /
+      suffix: .jsp
+  datasource:
+    type: org.apache.commons.dbcp.BasicDataSource   #指定连接池类型
+    driver-class-name: com.mysql.jdbc.Driver        #指定驱动
+    url: jdbc:mysql://localhost:3306/ssm?characterEncoding=UTF-8           #指定url
+    username: root                                    #指定用户名
+    password: root                                     #指定密码
+</code></pre>
+<pre><code> **加入mybatis配置**
+</code></pre>
+<pre><code class="yml">#配置文件中加入如下配置:
+
+mybatis:
+  mapper-locations: classpath:com/baizhi/mapper/*.xml  #指定mapper配置文件位置
+  type-aliases-package: com.baizhi.entity              #指定起别名所在包
+</code></pre>
+<pre><code class="java">//入口类中加入如下配置:
+@SpringBootApplication
+@MapperScan(&quot;com.baizhi.dao&quot;)   //必须在入口类中加入这个配置
+public class Application &#123;
+    public static void main(String[] args) &#123;
+        SpringApplication.run(Application.class,args);
+    &#125;
+&#125;
+</code></pre>
+<pre><code> **建表**
+</code></pre>
+<pre><code class="sql">CREATE TABLE `t_clazz` (
+  `id` varchar(40) NOT NULL,
+  `name` varchar(80) DEFAULT NULL,
+  `no` varchar(90) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+</code></pre>
+<pre><code> **开发实体类**
+</code></pre>
+<pre><code class="java">public class Clazz &#123;
+    private String id;
+    private String name;
+    private String no;
+    //get set 方法省略....
+&#125;
+</code></pre>
+<pre><code> **开发DAO接口以及Mapper**
+</code></pre>
+<pre><code class="java">public interface ClazzDAO &#123;
+    List&lt;Clazz&gt; findAll();
+&#125;
+</code></pre>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE mapper PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot; &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
+&lt;mapper namespace=&quot;com.baizhi.dao.ClazzDAO&quot;&gt;
+    &lt;select id=&quot;findAll&quot; resultType=&quot;Clazz&quot;&gt;
+        select * from t_clazz 
+    &lt;/select&gt;
+&lt;/mapper&gt;
+</code></pre>
+<pre><code> **开发Service以及实现**
+</code></pre>
+<pre><code class="java">//接口
+public interface ClazzService &#123;
+    List&lt;Clazz&gt; findAll();
+&#125;
+//实现
+@Service
+@Transactional
+public class ClazzServiceImpl implements  ClazzService &#123;
+    @Autowired
+    private ClazzDAO clazzDAO;
+   
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public List&lt;Clazz&gt; findAll() &#123;
+        return clazzDAO.findAll();
+    &#125;
+&#125;
+</code></pre>
+<pre><code> **开发Controller**
+</code></pre>
+<pre><code class="java">@RestController
+public class ClazzController &#123;
+    @Autowired
+    private ClazzService clazzService;
+  
+    //查询所有
+    @RequestMapping(&quot;findAll&quot;)
+    public List&lt;Clazz&gt; findAll()&#123;
+        return clazzService.findAll();
+    &#125;   
+&#125;
+</code></pre>
+<p> <strong>启动项目访问测试</strong></p>
+<pre><code class="http">http://localhost:8989/项目名/findAll
+</code></pre>
+<h2><span id="本地测试">本地测试</span></h2><blockquote>
+<p>往往在开发过程中业务代码课程非常复杂频繁启动服务器测试,非常麻烦!这个时候使用本地测试就是一个很好的解决方案,springboot也提供了本地测试解决方案!</p>
+</blockquote>
+<p> <strong>引入测试依赖</strong></p>
+<pre><code class="xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+     &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p> <strong>编写测试类</strong></p>
+<ul>
+<li><strong><code>@SpringBootTest</code></strong> <ul>
+<li>修饰范围: 用在类上</li>
+<li>作用: 用来启动本地Spring环境</li>
+</ul>
+</li>
+</ul>
+<pre><code class="java">@SpringBootTest
+public class TestEmpService &#123;
+
+    @Autowired
+    private EmpService empService;
+
+    @Test
+    public void test()&#123;
+        empService.findAll().forEach(emp-&gt; System.out.println(emp));
+    &#125;
+&#125;
+</code></pre>
+<hr>
+<h2><span id="热部署工具">热部署工具</span></h2><p><strong><code>为了进一步提高开发效率,springboot为我们提供了全局项目热部署,日后在开发过程中修改了部分代码以及相关配置文件后,不需要每次重启使修改生效,在项目中开启了springboot全局热部署之后只需要在修改之后等待几秒即可使修改生效。</code></strong></p>
+<p>  <strong>开启热部署</strong></p>
+<ul>
+<li> 项目中引入依赖 (每次搭建项目都需要引入)</li>
+</ul>
+<pre><code class="xml">&lt;dependency&gt;
+   &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+   &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;
+   &lt;optional&gt;true&lt;/optional&gt;
+&lt;/dependency&gt;
+</code></pre>
+<ul>
+<li>设置idea中支持自动编译(只需要设置一次)</li>
+</ul>
+<pre><code class="markdown"># 1.开启自动编译
+
+    Preferences | Build, Execution, Deployment | Compiler -&gt; 勾选上 Build project automatically 这个选项
+
+# 2.开启允许在运行过程中修改文件
+    ctrl + alt + shift + / ----&gt;选择1.Registry ---&gt; 勾选 compiler.automake.allow.when.app.running 这个选项
+</code></pre>
+<p> 启动项目检测热部署是否生效</p>
+<pre><code class="markdown"># 1.启动出现如下日志代表生效
+</code></pre>
+<pre><code class="verilog">2019-07-17 21:23:17.566  INFO 4496 --- [  restartedMain] com.baizhi.InitApplication               : Starting InitApplication on chenyannandeMacBook-Pro.local with PID 4496 (/Users/chenyannan/IdeaProjects/ideacode/springboot_day1/target/classes started by chenyannan in /Users/chenyannan/IdeaProjects/ideacode/springboot_day1)
+2019-07-17 21:23:17.567  INFO 4496 --- [  restartedMain] com.baizhi.InitApplication               : The following profiles are active: dev
+2019-07-17 21:23:17.612  INFO 4496 --- [  restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@66d799c5: startup date [Wed Jul 17 21:23:17 CST 2019]; root of context hierarchy
+2019-07-17 21:23:18.782  INFO 4496 --- [  restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8989 (http)
+2019-07-17 21:23:18.796  INFO 4496 --- [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-07-17 21:23:18.797  INFO 4496 --- [  restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+</code></pre>
+<p><strong><code>注意:日志出现restartedMain代表已经生效,在使用热部署时如果遇到修改之后不能生效,请重试重启项目在试</code></strong></p>
+<hr>
+<h2><span id="日志处理">日志处理</span></h2><p> <strong>引言</strong></p>
+<p>​    springboot框架 集成日志  logback 日志  </p>
+<p>​    Logback是由<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/log4j/480673">log4j</a>创始人设计的又一个开源日志组件。目前，logback分为三个模块：logback-core，logback-classic和logback-access。是对log4j日志展示进一步改进!</p>
+<p>​    总结: logback 也是一个开源日志组件  和  log4j作用一致 都是用来生成日志 logback更加轻量</p>
+<pre><code> **日志的级别**
+</code></pre>
+<pre><code class="markdown">&gt; All &lt; Trace &lt; `DEBUG &lt; INFO &lt; WARN &lt; ERROR` &lt; Fatal &lt; OFF
+
+- OFF   | 关闭：最高级别，不打印日志。 
+- FATAL | 致命：指明非常严重的可能会导致应用终止执行错误事件。
+- ERROR | 错误：指明错误事件，但应用可能还能继续运行。 
+- WARN | 警告：指明可能潜在的危险状况。 
+- INFO | 信息：指明描述信息，从粗粒度上描述了应用运行过程。 
+- DEBUG | 调试：指明细致的事件信息，对调试应用最有用。
+- TRACE | 跟踪：指明程序运行轨迹，比DEBUG级别的粒度更细。 
+- ALL | 所有：所有日志级别，包括定制级别。
+
+&gt; 日志级别由低到高:  `日志级别越高输出的日志信息越多`
+</code></pre>
+<pre><code> **项目中日志分类**
+</code></pre>
+<pre><code class="markdown"># 日志分类:
+- 一种是rootLogger(根全局日志) :     用来监听项目中所有的运行日志 包括引入依赖jar中的日志 
+
+- 一种是logger(指定包级别日志) :         用来监听项目中指定包中的日志信息
+</code></pre>
+<p> <strong>配置日志</strong></p>
+<p><strong><code>注意:SpringBoot框架中默认根日志为INFO</code></strong></p>
+<pre><code class="yml">logging:
+  level:
+    root: debug #指定根日志级别(一般不推荐修改根日志,输出信息太多,推荐使用子日志)
+    com.baizhi.dao: debug #指定某个包中日志
+  file:
+    name: aaa.log #指定日志名称
+    path: ./  #指定日志文件目录
+</code></pre>
+<pre><code> **项目中使用日志**
+</code></pre>
+<pre><code class="java">@Controller
+public class HelloController &#123;
+    //声明日志成员
+    private static final Logger log = LoggerFactory.getLogger(HelloController.class);
+    @RequestMapping(&quot;/hello&quot;)
+    @ResponseBody
+    public String hello()&#123;
+        System.out.println(&quot;======hello world=======&quot;);
+        logger.debug(&quot;DEBUG,&#123;&#125;&quot;,&quot;信息&quot;);
+        logger.info(&quot;INFO,&#123;&#125;&quot;,&quot;信息&quot;);
+        logger.warn(&quot;WARN,&#123;&#125;&quot;,&quot;信息&quot;);
+        logger.error(&quot;ERROR,&#123;&#125;&quot;,&quot;信息&quot;);
+        return &quot;hello&quot;;
+    &#125;
+&#125;
+</code></pre>
+<hr>
+<h2><span id="切面编程">切面编程</span></h2><p> <strong>引言</strong></p>
+<blockquote>
+<p>springboot是对原有项目中spring框架和springmvc的进一步封装,因此在springboot中同样支持spring框架中AOP切面编程,不过在springboot中为了快速开发仅仅提供了注解方式的切面编程.</p>
+</blockquote>
+<p> <strong>使用</strong></p>
+<p> 引入依赖</p>
+<pre><code class="xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-aop&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p> 相关注解</p>
+<pre><code class="markdown"># 切面注解
+- @Aspect 用来类上,代表这个类是一个切面
+- @Before 用在方法上代表这个方法是一个前置通知方法 
+- @After 用在方法上代表这个方法是一个后置通知方法 @Around 用在方法上代表这个方法是一个环绕的方法
+- @Around 用在方法上代表这个方法是一个环绕的方法
+</code></pre>
+<p> 前置切面</p>
+<pre><code class="java">@Aspect
+@Configuration
+public class MyAspect &#123;
+    @Before(&quot;execution(* com.baizhi.service.*.*(..))&quot;)
+    public void before(JoinPoint joinPoint)&#123;
+        System.out.println(&quot;前置通知&quot;);
+        joinPoint.getTarget();//目标对象
+        joinPoint.getSignature();//方法签名
+        joinPoint.getArgs();//方法参数
+    &#125;
+&#125;
+</code></pre>
+<p> 后置切面</p>
+<pre><code class="java">@Aspect
+@Configuration
+public class MyAspect &#123;
+    @After(&quot;execution(* com.baizhi.service.*.*(..))&quot;)
+    public void before(JoinPoint joinPoint)&#123;
+        System.out.println(&quot;后置通知&quot;);
+        joinPoint.getTarget();//目标对象
+        joinPoint.getSignature();//方法签名
+        joinPoint.getArgs();//方法参数
+    &#125;
+&#125;
+</code></pre>
+<p><strong><code>注意: 前置通知和后置通知都没有返回值,方法参数都为joinpoint</code></strong></p>
+<p> 环绕切面</p>
+<pre><code class="java">@Aspect
+@Configuration
+public class MyAspect &#123;
+    @Around(&quot;execution(* com.baizhi.service.*.*(..))&quot;)
+    public Object before(ProceedingJoinPoint proceedingJoinPoint) throws Throwable &#123;
+        System.out.println(&quot;进入环绕通知&quot;);
+        proceedingJoinPoint.getTarget();//目标对象
+        proceedingJoinPoint.getSignature();//方法签名
+        proceedingJoinPoint.getArgs();//方法参数
+        Object proceed = proceedingJoinPoint.proceed();//放行执行目标方法
+        System.out.println(&quot;目标方法执行之后回到环绕通知&quot;);
+        return proceed;//返回目标方法返回值
+    &#125;
+&#125;
+</code></pre>
+<blockquote>
+<p><strong><code>注意: 环绕通知存在返回值,参数为ProceedingJoinPoint,如果执行放行,不会执行目标方法,一旦放行必须将目标方法的返回值返回,否则调用者无法接受返回数据</code></strong></p>
+</blockquote>
+<h2><span id="文件上传下载">文件上传下载</span></h2><p> <strong>文件上传</strong></p>
+<p><code>用户访问当前系统,将自己本地计算机中文件通过浏览器上传到当前系统所在的服务器过程中称之为文件的上传</code></p>
+<p>文件上传: 用户将自己计算机中文件 上传到 项目所在服务器过程、文件服务器、OSS 称之为文件上传</p>
+<ul>
+<li>准备上传页面</li>
+</ul>
+<pre><code class="html">&lt;form action=&quot;路径....&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
+        &lt;input type=&quot;file&quot; name=&quot;aa&quot;&gt;
+        &lt;input type=&quot;submit&quot; value=&quot;上传&quot;&gt;
+&lt;/form&gt;
+&lt;!--
+    1. 表单提交方式必须是post
+    2. 表单的enctype属性必须为multipart/form-data
+    3. 后台接受变量名字要与文件选择name属性一致
+--&gt;
+</code></pre>
+<ul>
+<li>编写控制器</li>
+</ul>
+<pre><code class="java">@Controller
+@RequestMapping(&quot;/file&quot;)
+public class FileController &#123;
+  @RequestMapping(&quot;/upload&quot;)
+  public String upload(MultipartFile aa, HttpServletRequest request) throws IOException &#123;
+        String realPath = request.getRealPath(&quot;/upload&quot;);
+        aa.transferTo(new File(realPath,aa.getOriginalFilename()));//文件上传
+        return &quot;index&quot;;
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>修改文件上传大小</li>
+</ul>
+<pre><code class="yml">#上传时出现如下异常:  上传文件的大小超出默认配置      默认10M
+nested exception is java.lang.IllegalStateException: org.apache.tomcat.util.http.fileupload.FileUploadBase$SizeLimitExceededException: the request was rejected because its size (38443713) exceeds the configured maximum (10485760)
+#修改上传文件大小:
+spring:
+  http:
+    multipart:
+       max-request-size: 209715200  #用来控制文件上传大小的限制
+       max-file-size: 209715200 #用来指定服务端最大文件大小   
+
+spring.servlet.multipart.max-file-size=500MB
+spring.servlet.multipart.max-request-size=500MB
+</code></pre>
+<p><strong>文件下载</strong></p>
+<p><code>文件下载:  将服务器某个资源文件下载到用户本地计算机过程称之为文件下载</code></p>
+<ul>
+<li>提供下载文件链接</li>
+</ul>
+<pre><code class="html">&lt;a href=&quot;../file/download?fileName=corejava.txt&quot;&gt;corejava.txt&lt;/a&gt;
+</code></pre>
+<ul>
+<li>开发控制器</li>
+</ul>
+<pre><code class="java">@RequestMapping(&quot;/download&quot;)
+public void download(String fileName, HttpServletRequest request, HttpServletResponse response) throws Exception &#123;
+        String realPath = request.getRealPath(&quot;/upload&quot;);
+        FileInputStream is = new FileInputStream(new File(realPath, fileName));
+        ServletOutputStream os = response.getOutputStream();
+        response.setHeader(&quot;content-disposition&quot;,&quot;attachment;fileName=&quot;+ URLEncoder.encode(fileName,&quot;UTF-8&quot;));
+        IOUtils.copy(is,os);
+        IOUtils.closeQuietly(is);
+        IOUtils.closeQuietly(os);
+    &#125;
+</code></pre>
+<hr>
+<h2><span id="拦截器">拦截器</span></h2><p><strong>开发拦截器</strong></p>
+<pre><code class="java">public class MyInterceptor implements HandlerInterceptor &#123;
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception &#123;
+        System.out.println(&quot;======1=====&quot;);
+        return true;//返回true 放行  返回false阻止
+    &#125;
+
+    @Override
+    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object o, ModelAndView modelAndView) throws Exception &#123;
+        System.out.println(&quot;=====2=====&quot;);
+    &#125;
+
+    @Override
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object o, Exception e) throws Exception &#123;
+        System.out.println(&quot;=====3=====&quot;);
+    &#125;
+&#125;
+</code></pre>
+<p><strong>配置拦截器</strong></p>
+<pre><code class="java">@Configuration
+public class WebMvcConfig  implements WebMvcConfigurer &#123;
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) &#123;
+          registry.addInterceptor(&quot;拦截器&quot;)
+                .addPathPatterns(&quot;拦截路径&quot;)
+                .excludePathPatterns(&quot;排除路径&quot;)
+                      .order(&quot;指定执行顺序&quot;)
+    &#125;
+&#125;
+</code></pre>
+<p><strong><code>注意:order用来执行多个拦截器的执行顺序,order书写是自然数,按照自然数顺序执行</code></strong></p>
+<hr>
+<h2><span id="war包部署">war包部署</span></h2><p><strong>设置打包方式为war</strong></p>
+<blockquote>
+<p>​    <strong><packaging>war</packaging></strong></p>
+</blockquote>
+<p><strong>在插件中指定入口类</strong></p>
+<pre><code class="xml">&lt;build&gt;
+    &lt;plugins&gt;
+      &lt;plugin&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+        &lt;!--使用热部署出现中文乱码解决方案--&gt;
+        &lt;configuration&gt;
+          &lt;fork&gt;true&lt;/fork&gt;
+          &lt;!--增加jvm参数--&gt;
+          &lt;jvmArguments&gt;-Dfile.encoding=UTF-8&lt;/jvmArguments&gt;
+          &lt;!--指定入口类--&gt;
+          &lt;mainClass&gt;com.baizhi.Application&lt;/mainClass&gt;
+        &lt;/configuration&gt;
+      &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/build&gt;      
+</code></pre>
+<p><strong>排除内嵌的tomcat</strong></p>
+<pre><code class="xml">&lt;dependency&gt;
+  &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+  &lt;artifactId&gt;spring-boot-starter-tomcat&lt;/artifactId&gt;
+  &lt;scope&gt;provided&lt;/scope&gt;   &lt;!--去掉内嵌tomcat--&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+  &lt;groupId&gt;org.apache.tomcat.embed&lt;/groupId&gt;
+  &lt;artifactId&gt;tomcat-embed-jasper&lt;/artifactId&gt;
+  &lt;scope&gt;provided&lt;/scope&gt;  &lt;!--去掉使用内嵌tomcat解析jsp--&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p><strong>配置入口类</strong></p>
+<pre><code class="java">//1.继承SpringBootServletInitializer
+//2.覆盖configure方法
+public class Application extends SpringBootServletInitializer&#123;
+    public static void main(String[] args) &#123;
+        SpringApplication.run(Application.class,args);
+    &#125;
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) &#123;
+        return builder.sources(Application.class);
+    &#125;
+&#125;
+</code></pre>
+<p><strong>打包测试</strong></p>
+<pre><code class="markdown"># 一旦使用war包部署注意:
+-    1. application.yml 中配置port context-path 失效
+-    2. 访问时使用打成war包的名字和外部tomcat端口号进行访问项目
+</code></pre>
+<h2><span id="jar包部署">Jar包部署</span></h2><p><strong>设置打包方式为jar</strong></p>
+<blockquote>
+<p>​    <strong><packaging>jar</packaging></strong></p>
+</blockquote>
+<p><strong><code>注意:默认方式也是jar</code></strong></p>
+<p> <strong>执行打包</strong></p>
+<p> <strong>测试访问</strong></p>
+<ul>
+<li><strong><code>注意:springboot部署jsp时,插件版本必须指定为1.4.2版本,并进行jsp打包配置才可以,其他版本均不支持!!!</code></strong></li>
+</ul>
+<p> <strong>修改插件版本</strong></p>
+<blockquote>
+<p>在项目的pom.xml配置文件中build标签中修改</p>
+</blockquote>
+<pre><code class="xml">&lt;plugins&gt;
+  &lt;!--版本必须为1.4.2版本--&gt;
+  &lt;plugin&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+    &lt;version&gt;1.4.2.RELEASE&lt;/version&gt;
+  &lt;/plugin&gt;
+&lt;/plugins&gt;
+</code></pre>
+<p> <strong>指定jsp打包配置</strong></p>
+<blockquote>
+<p>在项目的pom.xml配置文件中build标签中加入配置</p>
+</blockquote>
+<pre><code class="xml">&lt;resources&gt;
+  &lt;!-- 打包时将jsp文件拷贝到META-INF目录下--&gt;
+  &lt;resource&gt;
+    &lt;!-- 指定resources插件处理哪个目录下的资源文件 --&gt;
+    &lt;directory&gt;src/main/webapp&lt;/directory&gt;
+    &lt;!--指定必须要放在此目录下才能被访问到--&gt;
+    &lt;targetPath&gt;META-INF/resources&lt;/targetPath&gt;
+    &lt;includes&gt;
+      &lt;include&gt;**/**&lt;/include&gt;
+    &lt;/includes&gt;
+  &lt;/resource&gt;
+  &lt;resource&gt;
+    &lt;directory&gt;src/main/resources&lt;/directory&gt;
+    &lt;includes&gt;
+      &lt;include&gt;**/**&lt;/include&gt;
+    &lt;/includes&gt;
+    &lt;filtering&gt;false&lt;/filtering&gt;
+  &lt;/resource&gt;
+&lt;/resources&gt;
+</code></pre>
+<p> <strong>重新打包测试即可</strong></p>
+<hr>
+<h2><span id="thymeleaf">Thymeleaf</span></h2><blockquote>
+<p>Thymeleaf是一个用于web和独立环境的现代服务器端Java模板引擎。</p>
+<p>–摘自官网<a target="_blank" rel="noopener" href="https://www.thymeleaf.org/">https://www.thymeleaf.org/</a></p>
+</blockquote>
+<p><code>Thymeleaf</code>是跟Velocity、FreeMarker类似的模板引擎，它可以完全替代JSP，相较与其他的模板引擎相比, Thymeleaf在有网络和无网络的环境下皆可运行，即它可以让美工在浏览器查看页面的静态效果，也可以让程序员在服务器查看带数据的动态页面效果。</p>
+<p> <strong>集成Thymeleaf模板</strong></p>
+<p> 引入依赖</p>
+<pre><code class="xml">&lt;!--使用thymelaf--&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+  &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p> 编写配置</p>
+<pre><code class="yml">spring:
+  thymeleaf:
+    cache: false  # 关闭缓存
+    prefix: classpath:/templates/ #指定模板位置
+    suffix: .html #指定后缀
+</code></pre>
+<p> 编写控制器测试</p>
+<pre><code class="java">
+@Controller    //一定要是@Controller 不能再使用@RestController注解
+@RequestMapping(&quot;hello&quot;)
+public class HelloController &#123;
+    @GetMapping(&quot;hello&quot;)
+    public String hello()&#123;
+        System.out.println(&quot;测试与 thymeleaf 的集成&quot;);
+        return &quot;index&quot;;
+    &#125;
+&#125;
+</code></pre>
+<p> 在templates目录中定义模板</p>
+<p> 测试访问</p>
+<pre><code>http://localhost:8989/springboot_day3/hello/hello
+</code></pre>
+<p> 查看结果</p>
+<hr>
+<p> <strong>模板基本语法</strong></p>
+<pre><code class="html">使用时必须在页面中加入thymeleaf如下命名空间:
+&lt;html lang=&quot;en&quot; xmlns:th=&quot;http://www.thymeleaf.org&quot;&gt;
+</code></pre>
+<p><strong>展示单个数据</strong></p>
+<p> 设置数据</p>
+<pre><code class="java">model.addAttribute(&quot;name&quot;,&quot;张三&quot;); 或 request.setAttribute(&quot;name&quot;,&quot;小黑&quot;);
+</code></pre>
+<p> 获取数据</p>
+<pre><code class="html">&lt;span th:text=&quot;$&#123;name&#125;&quot;/&gt;  ---&gt;获取数据
+</code></pre>
+<p> 解析含有html标签数据</p>
+<pre><code class="java">model.addAttribute(&quot;name&quot;,&quot;&lt;a href=&#39;&#39;&gt;张三&lt;/a&gt;&quot;);
+model.addAttribute(&quot;username&quot;,&quot;小陈&quot;);
+</code></pre>
+<ul>
+<li>直接获取原样输出</li>
+</ul>
+<pre><code class="html">&lt;span th:text=&quot;$&#123;name&#125;&quot;/&gt;
+</code></pre>
+<ul>
+<li>获取并解析</li>
+</ul>
+<pre><code class="html"> &lt;span th:utext=&quot;$&#123;name&#125;&quot;/&gt;
+</code></pre>
+<ul>
+<li><p>将数据赋值给表单元素</p>
+<pre><code class="html">&lt;input type=&quot;text&quot; th:value=&quot;$&#123;username&#125;&quot;/&gt;
+</code></pre>
+</li>
+</ul>
+<pre><code class="markdown"># 总结
+-  1.使用 th:text=&quot;$&#123;属性名&#125;&quot;  获取对应数据,获取数据时会将对应标签中数据清空,因此最好是空标签
+-  2.使用 th:utext=&quot;$&#123;属性名&#125;&quot; 获取对应的数据,可以将数据中html先解析在渲染到页面
+-  3.使用 th:value=&quot;$&#123;属性名&#125;&quot; 获取数据直接作为表单元素value属性
+</code></pre>
+<p> <strong>展示对象数据</strong></p>
+<pre><code class="html">model.addAttribute(&quot;user&quot;,new User(&quot;21&quot;,&quot;xiaochen&quot;,23,new Date()));
+id:&lt;span th:text=&quot;$&#123;user.id&#125;&quot;&gt;&lt;/span&gt;
+name:&lt;span th:text=&quot;$&#123;user.name&#125;&quot;&gt;&lt;/span&gt;
+age:&lt;span th:text=&quot;$&#123;user.age&#125;&quot;&gt;&lt;/span&gt;
+bir: &lt;span th:text=&quot;$&#123;user.bir&#125;&quot;&gt;&lt;/span&gt;  ====  &lt;span th:text=&quot;$&#123;#dates.format(user.bir, &#39;yyyy-MM-dd HH:mm&#39;)&#125;&quot;&gt;&lt;/span&gt; 日期格式化
+</code></pre>
+<p> <strong>条件展示数据</strong></p>
+<pre><code class="html">model.addAttribute(&quot;user&quot;,new User(&quot;21&quot;,&quot;xiaochen&quot;,23,new Date()));
+&lt;span th:if=&quot;$&#123;user.age&#125; eq 23&quot;&gt;
+  青年
+&lt;/span&gt;
+&lt;span th:if=&quot;$&#123;user.age == 23&#125;&quot;&gt;
+  青年
+&lt;/span&gt;
+# 运算符
+    gt：great than（大于）&gt;
+    ge：great equal（大于等于）&gt;=
+    eq：equal（等于）==
+    lt：less than（小于）&lt;
+    le：less equal（小于等于）&lt;=
+    ne：not equal（不等于）!=
+</code></pre>
+<p> <strong>展示多条数据</strong></p>
+<ul>
+<li>直接遍历集合</li>
+</ul>
+<pre><code class="html">
+ &lt;ul th:each=&quot;user:$&#123;users&#125;&quot;&gt;
+   &lt;li th:text=&quot;$&#123;user.id&#125;&quot;&gt;&lt;/li&gt;
+   &lt;li th:text=&quot;$&#123;user.name&#125;&quot;&gt;&lt;/li&gt;
+   &lt;li th:text=&quot;$&#123;user.age&#125;&quot;&gt;&lt;/li&gt;
+   &lt;li th:text=&quot;$&#123;#dates.format(user.bir,&#39;yyyy-MM-dd&#39;)&#125;&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<ul>
+<li>遍历时获取遍历状态</li>
+</ul>
+<pre><code class="html"> &lt;ul th:each=&quot;user,userStat:$&#123;users&#125;&quot;&gt;
+   &lt;li&gt;&lt;span th:text=&quot;$&#123;userStat.count&#125;&quot;/&gt;-&lt;span th:text=&quot;$&#123;user.id&#125;&quot;/&gt;&lt;/li&gt;   获取遍历次数  count 从1开始 index 从0开始
+   &lt;li&gt;&lt;span th:text=&quot;$&#123;userStat.odd&#125;&quot;/&gt;-&lt;span th:text=&quot;$&#123;user.name&#125;&quot;/&gt;&lt;/li&gt;   获取当前遍历是否是奇数行
+   &lt;li&gt;&lt;span th:text=&quot;$&#123;userStat.even&#125;&quot;/&gt;-&lt;span th:text=&quot;$&#123;user.age&#125;&quot;/&gt;&lt;/li&gt;   获取当前遍历是否是偶数行
+   &lt;li&gt;&lt;span th:text=&quot;$&#123;userStat.size&#125;&quot;/&gt;-&lt;span th:text=&quot;$&#123;user.bir&#125;&quot;/&gt;&lt;/li&gt;   获取当前集合的总条数
+&lt;/ul&gt;
+</code></pre>
+<p> <strong>引入静态资源</strong></p>
+<pre><code class="markdown"># 使用thymeleaf模板项目中静态资源默认放在resources路径小static目录中
+</code></pre>
+<ul>
+<li><p>项目中放入对应静态资源</p>
+</li>
+<li><p>页面中引入</p>
+<pre><code class="html"> &lt;link rel=&quot;stylesheet&quot; th:href=&quot;@&#123;/css/index.css&#125;&quot;&gt;
+ &lt;script th:src=&quot;@&#123;/js/jquery-min.js&#125;&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p><strong>注意: @{/}代表通过thymeleaf语法动态获取应用名</strong></p>
+</li>
+</ul>
+<p> <strong>在js代码中获取项目名</strong></p>
+<pre><code class="js">&lt;script&gt;
+  const ctx = &#39;[[@&#123;/&#125;]]&#39;;
+&lt;/script&gt;
+</code></pre>
+<p><strong>注意:[[书写thymeleaf语法]],这里[[]]是thymeleaf内嵌表达式</strong></p>
+<hr>
+<h2><span id="restful">RestFul</span></h2><p> <strong>引言</strong></p>
+<p>REST全称是<code>Representational State Transfer</code>，中文意思是表述（编者注：通常译为表征）性状态转移。 它首次出现在2000年Roy Fielding的博士论文中，Roy Fielding是HTTP规范的主要编写者之一。 他在论文中提到：”我这篇文章的写作目的，就是想在符合架构原理的前提下，理解和评估以网络为基础的应用软件的架构设计，得到一个功能强、性能好、适宜通信的架构。REST指的是一组架构约束条件和原则。” 如果一个架构符合REST的约束条件和原则，我们就称它为RESTful架构。</p>
+<p>RestFul: 是一种以网络为基础构架一种架构风格  一个架构符合Rest设计原则和约束成这个架构为RestFul。</p>
+<p>Rest 词： 更新技术  组件 服务  让我们web请求能够利用web中标准 和 能力 更好描述架构</p>
+<p>REST本身并没有创造新的技术、组件或服务，而隐藏在RESTful背后的理念就是使用Web的现有特征和能力， 更好地使用现有Web标准中的一些准则和约束。虽然REST本身受Web技术的影响很深， 但是理论上REST架构风格并不是绑定在HTTP上，只不过目前HTTP是唯一与REST相关的实例。 所以我们这里描述的REST也是通过HTTP实现的REST。</p>
+<p> <strong>总结</strong></p>
+<blockquote>
+<p> Restful 一种软件架构风格、设计风格，而<strong>不是</strong>标准，只是提供了一组设计原则和约束条件。它主要用于客户端和服务器交互类的软件。基于这个风格设计的软件可以更简洁，更有层次，更易于实现缓存等机制。</p>
+</blockquote>
+<p>web开发: 实现所有功能</p>
+<p>restful: 软件设计风格 标准  简洁   层次  优雅</p>
+<p>rest设计原则 和 约束架构称之为restFul</p>
+<p> <strong>URL定义</strong></p>
+<ul>
+<li>资源：互联网所有的事物都可以被抽象为资源 <ul>
+<li>一首歌  一张图片 数据库一条记录  </li>
+</ul>
+</li>
+<li>资源操作：使用POST(添加)、DELETE(删除)、PUT(修改)、GET(查询)，使用不同请求方法对资源进行操作。 <ul>
+<li>删除 delete</li>
+<li>查询 get</li>
+<li>添加 post</li>
+<li>修改 put (修改全部字段)| patch(更新部分字段)</li>
+</ul>
+</li>
+</ul>
+<p> 传统方式操作资源</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="http://127.0.0.1/item/queryUser.action?id=1">http://127.0.0.1/item/queryUser.action?id=1</a>   查询,GET </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://127.0.0.1/item/saveUser.action">http://127.0.0.1/item/saveUser.action</a>             新增,POST </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://127.0.0.1/item/updateUser.action">http://127.0.0.1/item/updateUser.action</a>          更新,PUT</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://127.0.0.1/item/deleteUser.action?id=1">http://127.0.0.1/item/deleteUser.action?id=1</a>  删除,DELETE</p>
+<p>**注意:**传统的操作是没有问题的,大神认为是有问题的,有什么问题呢?你每次请求的接口或者地址,都在做描述,例如查询的时候用了queryUser,新增的时候用了saveUser ，修改的时候用了updateUser,其实完全没有这个必要,我使用了get请求,就是查询.使用post请求,就是新增的请求,PUT就是修改，delete就是删除，我的意图很明显,完全没有必要做描述,这就是为什么有了restful.</p>
+</li>
+</ul>
+<p> 使用RESTful操作资源 </p>
+<ul>
+<li><p>【GET】 /users # 查询用户信息列表</p>
+</li>
+<li><p>【GET】 /users/1001 # 查看某个用户信息</p>
+</li>
+</ul>
+<ul>
+<li>【POST】 /users # 新建用户信息</li>
+</ul>
+<ul>
+<li>【PUT】 /users/1001 # 更新用户信息(全部字段)</li>
+</ul>
+<ul>
+<li>【PATCH】 /users/1001 # 更新用户信息(部分字段)</li>
+</ul>
+<ul>
+<li>【DELETE】 /users/1001 # 删除用户信息</li>
+</ul>
+<p> <strong>Rest</strong> API设计风格原则</p>
+<pre><code class="markdown"># 1.使用名词而不是动词
+- 不要使用：
+    如:
+    /getAllUsers    get   /users  get /users/002
+    /createNewUser  post  /users
+    /deleteAllUser  delete /users/001
+
+# 2.Get方法和查询参数不应该涉及状态改变
+- 使用PUT, POST 和DELETE 方法 而不是 GET 方法来改变状态，不要使用GET 进行状态改变
+
+
+# 3.使用复数名词
+- 不要混淆名词单数和复数，为了保持简单，只对所有资源使用复数。
+    如:
+    /cars 而不是 /car
+    /users 而不是 /user
+    /products 而不是 /product
+    /settings 而不是 /setting
+    /orders   而不是 /order
+        
+# 4. 使用子资源表达关系
+- 如果一个资源与另外一个资源有关系，使用子资源：
+    如:
+    GET /cars/711/drivers/ 返回 car 711的所有司机
+    GET /cars/711/drivers/4 返回 car 711的4号司机
+    GET /users/11/pets      返回 user 11的所有宠物
+    GET /users/11/pets/2    返回 user 11的2号宠物
+
+# 5.使用Http头声明序列化格式
+- 在客户端和服务端，双方都要知道通讯的格式，格式在HTTP-Header中指定
+    如:
+    Content-Type 定义请求格式
+    Accept 定义系列可接受的响应格式
+
+# 6.为集合提供过滤 排序 选择和分页等功能
+- Filtering过滤:使用唯一的查询参数进行
+    GET /cars?color=red 返回红色的cars
+    GET /cars?seats&lt;=2 返回小于两座位的cars集合
+
+- Sorting排序:允许针对多个字段排序
+    GET /cars?sort=-manufactorer,+model
+    这是返回根据生产者降序和模型升序排列的car集合
+
+- Field selection
+    移动端能够显示其中一些字段，它们其实不需要一个资源的所有字段，给API消费者一个选择字段的能力，这会降低网络流量，提高API可用性。
+    GET /cars?fields=manufacturer,model,id,color
+    
+- Paging分页
+    使用 limit 和offset.实现分页，缺省limit=20 和offset=0；
+    GET /cars?offset=10&amp;limit=5
+    为了将总数发给客户端，使用订制的HTTP头： X-Total-Count.
+    链接到下一页或上一页可以在HTTP头的link规定，遵循Link规定:
+    Link: &lt;https://blog.mwaysolutions.com/sample/api/v1/cars?offset=15&amp;limit=5&gt;; rel=&quot;next&quot;,&lt;https://blog.mwaysolutions.com/sample/api/v1/cars?offset=50&amp;limit=3&gt;; rel=&quot;last&quot;,&lt;https://blog.mwaysolutions.com/sample/api/v1/cars?offset=0&amp;limit=5&gt;; rel=&quot;first&quot;,&lt;https://blog.mwaysolutions.com/sample/api/v1/cars?offset=5&amp;limit=5&gt;; rel=&quot;prev&quot;,
+    
+
+# 7.版本化你的API  支付宝  v1  v2   v3
+- 使得API版本变得强制性，不要发布无版本的API，使用简单数字，避免小数点如2.5.
+    一般在Url后面使用?v
+    /blog/api/v1
+
+# 8. 使用Http状态码处理错误
+- 如果你的API没有错误处理是很难的，只是返回500和出错堆栈不一定有用
+- Http状态码提供70个出错，我们只要使用10个左右：
+     `200 – OK – 一切正常
+  `201 – OK – 新的资源已经成功创建
+  `204 – OK – 资源已经成功删除
+  `304 – Not Modified – 客户端使用缓存数据
+  `400 – Bad Request – 请求无效，需要附加细节解释如 &quot;JSON无效&quot;
+  `401 – Unauthorized – 请求需要用户验证
+  `403 – Forbidden – 服务器已经理解了请求，但是拒绝服务或这种请求的访问是不允许的。
+  `404 – Not found – 没有发现该资源
+  `422 – Unprocessable Entity – 只有服务器不能处理实体时使用，比如图像不能被格式化，或者重要字段丢失。
+  `500 – Internal Server Error – API开发者应该避免这种错误。
+使用详细的错误包装错误：  状态码    数据  header头信息
+&#123;
+  &quot;errors&quot;: [
+   &#123;
+    &quot;userMessage&quot;: &quot;Sorry, the requested resource does not exist&quot;,
+    &quot;internalMessage&quot;: &quot;No car found in the database&quot;,
+    &quot;code&quot;: 34,
+    &quot;more info&quot;: &quot;http://dev.mwaysolutions.com/blog/api/v1/errors/12345&quot;
+   &#125;
+  ]
+&#125;
+</code></pre>
+<p> <strong>Rest</strong> API案例</p>
+<pre><code class="java">@RestController
+@RequestMapping(&quot;v1/users&quot;)
+public class UserController &#123;
+
+
+    private UserService userService;
+
+    @Autowired
+    public UserController(UserService userService) &#123;
+        this.userService = userService;
+    &#125;
+
+    /**
+     * 保存用户
+     *
+     * @param user
+     * @return
+     */
+    @PostMapping
+    public ResponseEntity&lt;Void&gt; saveUser(@RequestBody User user) &#123;
+        try &#123;
+            userService.save(user);
+        &#125; catch (Exception e) &#123;
+            e.printStackTrace();
+            return new ResponseEntity&lt;Void&gt;(HttpStatus.INTERNAL_SERVER_ERROR);
+        &#125;
+        return new ResponseEntity&lt;Void&gt;(HttpStatus.CREATED);
+    &#125;
+
+    /**
+     * 删除用户
+     *
+     * @param id
+     * @return
+     */
+    @DeleteMapping(&quot;&#123;id&#125;&quot;)
+    public ResponseEntity&lt;Void&gt; deleteUser(@PathVariable(&quot;id&quot;) Integer id) &#123;
+        try &#123;
+            userService.delete(id);
+        &#125; catch (Exception e) &#123;
+            e.printStackTrace();
+            return new ResponseEntity&lt;Void&gt;(HttpStatus.INTERNAL_SERVER_ERROR);
+        &#125;
+        return new ResponseEntity&lt;Void&gt;(HttpStatus.NO_CONTENT);
+    &#125;
+
+    /**
+     * 更新用户
+     *
+     * @param user
+     * @return
+     */
+    @PutMapping
+    public ResponseEntity&lt;Void&gt; updateUser(@RequestBody User user) &#123;
+        userService.update(user);
+        return new ResponseEntity&lt;Void&gt;(HttpStatus.NO_CONTENT);
+    &#125;
+
+    /**
+     * 用户详情
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping(&quot;&#123;id&#125;&quot;)
+    public ResponseEntity&lt;User&gt; findUserById(@PathVariable(&quot;id&quot;) Integer id) &#123;
+        User user = userService.findById(id);
+        if (user == null) &#123;
+            return new ResponseEntity&lt;User&gt;(HttpStatus.INTERNAL_SERVER_ERROR);
+        &#125;
+        return new ResponseEntity&lt;User&gt;(user, HttpStatus.OK);
+    &#125;
+
+    /**
+     * 用户列表
+     *
+     * @return
+     */
+    @GetMapping
+    public ResponseEntity&lt;List&lt;User&gt;&gt; users() &#123;
+        List&lt;User&gt; users = null;
+        try &#123;
+            users = userService.findAll();
+        &#125; catch (Exception e) &#123;
+            e.printStackTrace();
+            return new ResponseEntity&lt;List&lt;User&gt;&gt;(HttpStatus.INTERNAL_SERVER_ERROR);
+        &#125;
+        return new ResponseEntity&lt;List&lt;User&gt;&gt;(users, HttpStatus.OK);
+    &#125;
+&#125;
+</code></pre>
+<hr>
+<h2><span id="异常处理">异常处理</span></h2><p> <strong>传统开发的异常处理</strong></p>
+<pre><code class="java">/**
+ * 全局异常处理之传统web开发
+ */
+@Component
+public class GlobalExceptionHandler implements HandlerExceptionResolver &#123;
+    //参数1: 当前请求对象
+    //参数2: 当前请求的响应对象
+    //参数3: 当前出现异常的控制器对象
+    @Override
+    public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) &#123;
+        //异常处理...
+        return new ModelAndView(&quot;500&quot;);
+    &#125;
+&#125;
+</code></pre>
+<p> <strong>RestFul的异常处理</strong></p>
+<pre><code class="java">/**
+ * 全局异常处理之RestFul
+ */
+@ControllerAdvice
+public class GlobalExceptionHandlerRest &#123;
+    @ExceptionHandler(value = Exception.class)
+    @ResponseBody
+    public ResponseEntity&lt;String&gt; exceptionHandler(Exception e) &#123;
+        return new ResponseEntity&lt;&gt;(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+    &#125;
+&#125;
+</code></pre>
+<hr>
+<h2><span id="cors-跨域">CORS 跨域</span></h2><p> <strong>CORS</strong></p>
+<ul>
+<li><p>​    <code>CORS是一个W3C标准，全称是&quot;跨域资源共享&quot;（Cross-origin resource sharing）</code>。</p>
+</li>
+<li><p>​    它允许浏览器向跨源服务器，发出XMLHttpRequest(ajax)请求，从而克服了AJAX只能<code>同源使用的限制</code>。</p>
+</li>
+</ul>
+<p> <strong>同源策略</strong></p>
+<ul>
+<li>​    <strong><code>同源策略</code></strong>[same origin policy]是浏览器的一个安全功能，不同源的客户端脚本在没有明确授权的情况下，不能读写对方资源。 同源策略是浏览器安全的基石。</li>
+</ul>
+<p> <strong>源</strong></p>
+<ul>
+<li>​    <strong><code>源</code></strong>[origin]就是协议、域名和端口号。例如：<a href="http://www.baidu.com:80这个URL。">http://www.baidu.com:80这个URL。</a></li>
+</ul>
+<p> <strong>同源</strong></p>
+<ul>
+<li>​    若地址里面的<code>协议、域名和端口号均相同</code>则属于同源。</li>
+</ul>
+<pre><code class="markdown"># 同源举例
+- 例如判断下面的URL是否与 http://www.a.com/test/index.html 同源
+    http://www.a.com/dir/page.html ---------&gt;同源
+    http://www.child.a.com/test/index.html -&gt;不同源，域名不相同
+    https://www.a.com/test/index.html ------&gt;不同源，协议不相同
+    http://www.a.com:8080/test/index.html --&gt;不同源，端口号不相同
+</code></pre>
+<p> <strong>哪些操作不受同源限制</strong></p>
+<ul>
+<li><p>页面中的链接，重定向以及表单提交是不会受到同源策略限制的；</p>
+</li>
+<li><p>跨域资源的引入是可以的。如嵌入到页面中的<code>&lt;script src=&quot;...&quot;&gt;&lt;/script&gt;</code>，<code>&lt;img&gt;</code>，<code>&lt;link&gt;</code>，<code>&lt;iframe&gt;</code>等。</p>
+</li>
+</ul>
+<p> <strong>哪些操作受到同源限制</strong></p>
+<ul>
+<li>在浏览器中发起一个AJAX请求,会受到同源策略限制。</li>
+<li><strong><code>出现错误:Access-Control-Allow-Origin</code></strong></li>
+</ul>
+<p> <strong>使用CORS解决同源限制</strong></p>
+<ol>
+<li> @CrossOrigin注解</li>
+</ol>
+<pre><code class="java">@RestController
+@RequestMapping(&quot;demos&quot;)
+@CrossOrigin
+public class DemoController &#123;
+    @GetMapping
+    public String demos() &#123;
+        System.out.println(&quot;========demo=======&quot;);
+        return &quot;demo ok&quot;;
+    &#125;
+&#125;
+</code></pre>
+<ol start="2">
+<li> 全局解决跨域问题</li>
+</ol>
+<pre><code class="java">@Configuration
+public class CorsConfig &#123;
+    @Bean
+    public CorsFilter corsFilter() &#123;
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        CorsConfiguration corsConfiguration = new CorsConfiguration();
+        corsConfiguration.addAllowedOrigin(&quot;*&quot;); // 1允许任何域名使用
+        corsConfiguration.addAllowedHeader(&quot;*&quot;); // 2允许任何头
+        corsConfiguration.addAllowedMethod(&quot;*&quot;); // 3允许任何方法（post、get等）
+        source.registerCorsConfiguration(&quot;/**&quot;, corsConfiguration);//4处理所有请求的跨域配置
+     return new CorsFilter(source);
+    &#125;
+&#125;
+</code></pre>
+<hr>
+<h2><span id="jasypt-加密">Jasypt 加密</span></h2><p> <strong>引言</strong></p>
+<p> Jasypt 也即Java Simplified Encryption是Sourceforge.net上的一个开源项目。在当地时间11月23号的通告中，Jasypt 1.4的新特征包括：加密属性文件（encryptable properties files）、Spring Framework集成、加密Hibernate数据源配置、新的命令行工具、URL加密的Apache wicket集成以及升级文档。</p>
+<p>根据Jasypt文档，该技术可用于加密任务与应用程序，例如加密密码、敏感信息和数据通信、创建完整检查数据的sums. 其他性能包括高安全性、基于标准的加密技术、可同时单向和双向加密的加密密码、文本、数字和二进制文件。Jasypt也可以与Acegi Security整合也即Spring Security。Jasypt亦拥有加密应用配置的集成功能，而且提供一个开放的API从而任何一个Java Cryptography Extension都可以使用Jasypt。</p>
+<p>Jasypt还符合RSA标准的基于密码的加密，并提供了无配置加密工具以及新的、高可配置标准的加密工具。</p>
+<p> <strong>整合SpringBoot</strong></p>
+<ul>
+<li>引入依赖</li>
+</ul>
+<pre><code class="xml">&lt;dependency&gt;
+    &lt;groupId&gt;com.github.ulisesbocchio&lt;/groupId&gt;
+    &lt;artifactId&gt;jasypt-spring-boot-starter&lt;/artifactId&gt;
+    &lt;version&gt;2.0.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<ul>
+<li>编写配置</li>
+</ul>
+<pre><code class="yml">jasypt:
+  encryptor:
+    algorithm: PBEWithMD5AndDES
+    password: cf150b74e4824146ad76e9ebe757ba76 #使用加密秘钥
+</code></pre>
+<ul>
+<li><p>通过程序传递密钥</p>
+<pre><code class="css">-Djasypt.encryptor.password=cf150b74e4824146ad76e9ebe757ba76
+</code></pre>
+</li>
+<li><p>加密、解密</p>
+</li>
+</ul>
+<pre><code class="java">@Autowired
+StringEncryptor encryptor;
+
+@Test
+public void testSecret() &#123;
+  //加密
+  String url = encryptor.encrypt(&quot;localhost&quot;);
+  System.out.println(url);
+  //解密
+  String decrypt = encryptor.decrypt(&quot;nRmCj//nOuErKepiS6dyBO/9Ff7LGCXZ&quot;);
+  System.out.println(decrypt);
+&#125;
+</code></pre>
+<ul>
+<li>使用</li>
+</ul>
+<pre><code class="yml">mysql:
+  host: ENC(pNVN9SKixSnfJ8yZjjIESZuP8HTwG0Hm)
+
+spring:
+  thymeleaf:
+    suffix: .html
+    prefix: classpath:/templates/
+    cache: false
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://$&#123;mysql.host&#125;:3306/emp?characterEncoding=UTF-8
+    username: ENC(M9LpI0WkgVh0rpx+BkOGew==)
+    password: ENC(M9LpI0WkgVh0rpx+BkOGew==)
+</code></pre>
+<style>
+ .md-toc{z-index:999;display: block; position: fixed; left: 0px; top: 200px;}
+</style>
+
+<hr>
+
+    </div>
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.css">
+    <div id="comment">
+        <div id="gitalk-container"></div>
+    </div>
+    
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 20xx - 2022 Yang的个人博客
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @CarSon Yang
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        <canvas
+            id="fireworks"
+            style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:2147483647"
+        ></canvas>
+        <script src="/js/fireworks.js"></script>
+        <canvas
+            id="background" 
+            style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:-1"
+        ></canvas>
+        <script src="/js/background.js"></script>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.1.3/pixi.min.js"></script> -->
+        <!-- <div id="L2dCanvas"></div>
+        <script src="/js/live2d.min.js"></script>
+        <script src="/css/live2d.css"></script>
+        <script>
+            var v = new Viewer({
+                width: 240,
+                height: 420,
+                left: "0",
+                bottom: "0",
+                basePath: "/model",
+                // role: "dafeng_2",
+                // role: "zhala_2",
+                mobile: true,
+            });
+        </script> -->
+        
+<script src="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.js"></script>
+<script>
+    var clientID = "3b8a78a17a8de3d483eb", clientSecret = "ca2df322376933273e049a9f3e0c1d27d0e54b53";
+    
+    const gitalk = new Gitalk({
+        clientID: clientID,
+        clientSecret: clientSecret,
+        repo: "blogComment",
+        owner: "Honkey-y",
+        admin: ["Honkey-y"],
+        language: "zh-CN",
+        id: location.pathname,
+        distractionFreeMode: false,
+        
+        proxy: "https://yangkblog.herokuapp.com/https://github.com/login/oauth/access_token"
+        
+    })
+    gitalk.render("gitalk-container")
+</script>
+
+
+    </body>
+</html>
