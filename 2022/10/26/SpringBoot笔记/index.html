@@ -148,7 +148,7 @@
 <span id="more"></span>
 <h2><span id="目录">📖目录：</span></h2><!-- toc -->
 
-<ul class="md-toc">
+<ul>
 <li><a href="#ssm%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA">SSM环境搭建</a></li>
 <li><a href="#%E7%8E%B0%E6%9C%89ssm%E5%BC%80%E5%8F%91%E5%AD%98%E5%9C%A8%E9%97%AE%E9%A2%98">现有SSM开发存在问题</a></li>
 <li><a href="#springboot%E7%9A%84%E5%BC%95%E8%A8%80">SpringBoot的引言</a></li>
@@ -1119,7 +1119,8 @@ public void download(String fileName, HttpServletRequest request, HttpServletRes
     &#125;
 &#125;
 </code></pre>
-<p><strong>配置拦截器</strong></p>
+<pre><code> **配置拦截器**
+</code></pre>
 <pre><code class="java">@Configuration
 public class WebMvcConfig  implements WebMvcConfigurer &#123;
     @Override
@@ -1133,11 +1134,13 @@ public class WebMvcConfig  implements WebMvcConfigurer &#123;
 </code></pre>
 <p><strong><code>注意:order用来执行多个拦截器的执行顺序,order书写是自然数,按照自然数顺序执行</code></strong></p>
 <hr>
-<h2><span id="war包部署">war包部署</span></h2><p><strong>设置打包方式为war</strong></p>
+<h2><span id="war包部署">war包部署</span></h2><pre><code> **设置打包方式为war**
+</code></pre>
 <blockquote>
 <p>​    <strong><packaging>war</packaging></strong></p>
 </blockquote>
-<p><strong>在插件中指定入口类</strong></p>
+<pre><code> **在插件中指定入口类**
+</code></pre>
 <pre><code class="xml">&lt;build&gt;
     &lt;plugins&gt;
       &lt;plugin&gt;
@@ -1155,7 +1158,8 @@ public class WebMvcConfig  implements WebMvcConfigurer &#123;
     &lt;/plugins&gt;
 &lt;/build&gt;      
 </code></pre>
-<p><strong>排除内嵌的tomcat</strong></p>
+<pre><code> **排除内嵌的tomcat**
+</code></pre>
 <pre><code class="xml">&lt;dependency&gt;
   &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
   &lt;artifactId&gt;spring-boot-starter-tomcat&lt;/artifactId&gt;
@@ -1168,7 +1172,8 @@ public class WebMvcConfig  implements WebMvcConfigurer &#123;
   &lt;scope&gt;provided&lt;/scope&gt;  &lt;!--去掉使用内嵌tomcat解析jsp--&gt;
 &lt;/dependency&gt;
 </code></pre>
-<p><strong>配置入口类</strong></p>
+<pre><code> **配置入口类**
+</code></pre>
 <pre><code class="java">//1.继承SpringBootServletInitializer
 //2.覆盖configure方法
 public class Application extends SpringBootServletInitializer&#123;
@@ -1181,12 +1186,14 @@ public class Application extends SpringBootServletInitializer&#123;
     &#125;
 &#125;
 </code></pre>
-<p><strong>打包测试</strong></p>
+<pre><code> **打包测试**
+</code></pre>
 <pre><code class="markdown"># 一旦使用war包部署注意:
 -    1. application.yml 中配置port context-path 失效
 -    2. 访问时使用打成war包的名字和外部tomcat端口号进行访问项目
 </code></pre>
-<h2><span id="jar包部署">Jar包部署</span></h2><p><strong>设置打包方式为jar</strong></p>
+<h2><span id="jar包部署">Jar包部署</span></h2><pre><code> **设置打包方式为jar**
+</code></pre>
 <blockquote>
 <p>​    <strong><packaging>jar</packaging></strong></p>
 </blockquote>
@@ -1277,7 +1284,7 @@ public class HelloController &#123;
 <pre><code class="html">使用时必须在页面中加入thymeleaf如下命名空间:
 &lt;html lang=&quot;en&quot; xmlns:th=&quot;http://www.thymeleaf.org&quot;&gt;
 </code></pre>
-<p><strong>展示单个数据</strong></p>
+<p> <strong>展示单个数据</strong></p>
 <p> 设置数据</p>
 <pre><code class="java">model.addAttribute(&quot;name&quot;,&quot;张三&quot;); 或 request.setAttribute(&quot;name&quot;,&quot;小黑&quot;);
 </code></pre>
@@ -1772,10 +1779,6 @@ spring:
     username: ENC(M9LpI0WkgVh0rpx+BkOGew==)
     password: ENC(M9LpI0WkgVh0rpx+BkOGew==)
 </code></pre>
-<style>
- .md-toc{z-index:999;display: block; position: fixed; left: 0px; top: 200px;}
-</style>
-
 <hr>
 
     </div>
