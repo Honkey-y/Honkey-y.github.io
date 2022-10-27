@@ -918,8 +918,7 @@ public class TestEmpService &#123;
 <p>​    springboot框架 集成日志  logback 日志  </p>
 <p>​    Logback是由<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/log4j/480673">log4j</a>创始人设计的又一个开源日志组件。目前，logback分为三个模块：logback-core，logback-classic和logback-access。是对log4j日志展示进一步改进!</p>
 <p>​    总结: logback 也是一个开源日志组件  和  log4j作用一致 都是用来生成日志 logback更加轻量</p>
-<pre><code> **日志的级别**
-</code></pre>
+<p><strong>日志的级别</strong></p>
 <pre><code class="markdown">&gt; All &lt; Trace &lt; `DEBUG &lt; INFO &lt; WARN &lt; ERROR` &lt; Fatal &lt; OFF
 
 - OFF   | 关闭：最高级别，不打印日志。 
@@ -933,14 +932,13 @@ public class TestEmpService &#123;
 
 &gt; 日志级别由低到高:  `日志级别越高输出的日志信息越多`
 </code></pre>
-<pre><code> **项目中日志分类**
-</code></pre>
+<p><strong>项目中日志分类</strong></p>
 <pre><code class="markdown"># 日志分类:
 - 一种是rootLogger(根全局日志) :     用来监听项目中所有的运行日志 包括引入依赖jar中的日志 
 
 - 一种是logger(指定包级别日志) :         用来监听项目中指定包中的日志信息
 </code></pre>
-<p> <strong>配置日志</strong></p>
+<p><strong>配置日志</strong></p>
 <p><strong><code>注意:SpringBoot框架中默认根日志为INFO</code></strong></p>
 <pre><code class="yml">logging:
   level:
@@ -1780,6 +1778,10 @@ spring:
     password: ENC(M9LpI0WkgVh0rpx+BkOGew==)
 </code></pre>
 <hr>
+<style>
+ .md-toc{z-index:999;display: block; position: fixed; left: 0px; top: 200px;}
+</style>
+
     </div>
     
     <link rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.css">
@@ -1865,7 +1867,5 @@ spring:
 
     </body>
 
-<style>
- .md-toc{z-index:999;display: block; position: fixed; left: 50px; top: 50px; background-color: #fff;}
-</style>
+    <style>.md-toc{z-index:999;display: block; position: fixed; left: 50px; top: 50px;}</style>
 </html>
