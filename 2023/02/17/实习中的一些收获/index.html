@@ -185,16 +185,16 @@
 <ul class="md-toc">
 <h2><span id="目录">📖目录：</span></h2>
 <li><a href="#%E6%A8%A1%E5%9D%97%E5%94%AE%E5%89%8D%E9%9B%B6%E5%94%AE%E8%AE%A2%E5%8D%95%E7%AE%A1%E7%90%86">模块：售前零售订单管理</a><ul>
-<li><a href="#20221108-excel%E6%89%B9%E9%87%8F%E5%AF%BC%E5%85%A5">20221108 - Excel批量导入</a></li>
-<li><a href="#20221109-%E5%AF%BC%E5%87%BA%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AF%E8%87%B3excel">20221109 - 导出错误信息至excel</a></li>
-<li><a href="#20221113-%E5%90%8C%E4%B8%80%E4%BA%8B%E7%89%A9%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%8E%E6%97%A0%E6%B3%95%E6%9F%A5%E8%AF%A2%E5%88%B0">20221113 - 同一事务，插入数据库后无法查询到</a></li>
-<li><a href="#20221123-%E7%BB%84%E5%90%88%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95%E9%87%8D%E5%A4%8D">20221123 - 组合唯一索引重复</a></li>
-<li><a href="#20221125-spring%E4%BA%8B%E5%8A%A1%E5%BC%82%E5%B8%B8rollback-only">20221125 - spring事务异常rollback-only</a></li>
-<li><a href="#20221213-%E5%8F%8D%E5%B0%84%E5%B7%A5%E5%85%B7%E7%B1%BB">20221213 - 反射工具类</a></li>
+<li><a href="#20221108-excel%E6%89%B9%E9%87%8F%E5%AF%BC%E5%85%A5">Excel批量导入</a></li>
+<li><a href="#20221109-%E5%AF%BC%E5%87%BA%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AF%E8%87%B3excel">导出错误信息至excel</a></li>
+<li><a href="#20221113-%E5%90%8C%E4%B8%80%E4%BA%8B%E7%89%A9%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%8E%E6%97%A0%E6%B3%95%E6%9F%A5%E8%AF%A2%E5%88%B0">同一事务，插入数据库后无法查询到</a></li>
+<li><a href="#20221123-%E7%BB%84%E5%90%88%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95%E9%87%8D%E5%A4%8D">组合唯一索引重复</a></li>
+<li><a href="#20221125-spring%E4%BA%8B%E5%8A%A1%E5%BC%82%E5%B8%B8rollback-only">spring事务异常rollback-only</a></li>
+<li><a href="#20221213-%E5%8F%8D%E5%B0%84%E5%B7%A5%E5%85%B7%E7%B1%BB">反射工具类</a></li>
 </ul>
 </li>
 <li><a href="#%E6%A8%A1%E5%9D%97%E4%B8%AD%E5%8F%B0%E6%9C%8D%E5%8A%A1%E5%AD%97%E5%85%B8%E7%9B%B8%E5%85%B3">模块：中台服务（字典相关）</a><ul>
-<li><a href="#20221202-%E9%87%8D%E6%9E%84%E7%BA%A7%E8%81%94%E5%AD%97%E5%85%B8sql">20221202 - 重构级联字典SQL</a></li>
+<li><a href="#20221202-%E9%87%8D%E6%9E%84%E7%BA%A7%E8%81%94%E5%AD%97%E5%85%B8sql">重构级联字典SQL</a></li>
 </ul>
 </li>
 <li><a href="#%E6%8F%92%E4%BB%B6">插件</a></li>
@@ -204,11 +204,11 @@
 <h2><span id="模块售前零售订单管理">模块：售前零售订单管理</span></h2><p>负责模块：销售订单 – 经理审核 – 财务审核 – 订单配车 – 生成PDI任务 – 车辆出库 – 交车确认 – 实销上报 – 车牌上报</p>
 <h3><span id="20221108-excel批量导入">20221108 - Excel批量导入</span></h3><p><strong>Collections.singletonList</strong></p>
 <p>在做excel表批量导入时，需要使用实体类频繁查询数据库，在创建实体类时我使用了<code>Collections.singletonList</code>，它被限定只被分配一个<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%86%85%E5%AD%98&spm=1001.2101.3001.7020">内存</a>空间，也就是只能存放一个元素的内容。这样做的好处就是不会造成内存的浪费，不像<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=ArrayList&spm=1001.2101.3001.7020"><code>ArrayList</code></a>这样的类，不管你是需要多少内存，初始化就会被分配一定空间的内存，就会导致多余内存的浪费。</p>
-<p>例子：<img src="../../../../../themes/themesparticlex/source/images/notes/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20221103104448.png" alt="微信截图_20221103104448"></p>
+<p>例子：<img src="/images/notes/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20221103104448.png" alt="微信截图_20221103104448"></p>
 <p><strong>优化批量导入时的校验</strong></p>
 <p>excel表中条数被限制在100条以内，为了缓解数据库压力，在校验时尽量少去查询数据库及feign调用字典。</p>
 <p>在解析excel表后定义数据Map与字典Map，将其作为入参进入循环校验方法中，在首次进入时查询符合条件的所有数据并存入Map中，再后续操作时跳过查询数据库，直接Map.contanis(数据)判断是否包含即可。</p>
-<p>例子：<img src="../../../../../themes/themesparticlex/source/images/notes/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20221110180708.png" alt="微信截图_20221110180708"></p>
+<p>例子：<img src="/images/notes/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20221110180708.png" alt="微信截图_20221110180708"></p>
 <h3><span id="20221109-导出错误信息至excel">20221109 - 导出错误信息至excel</span></h3><pre><code class="java">@RequestMapping(value = &quot;/outPutExcel&quot;, method = RequestMethod.GET)
 @ResponseBody
 public void outPutExcel(HttpServletResponse response) &#123;
@@ -250,7 +250,7 @@ public void outPutExcel(HttpServletResponse response) &#123;
 <p>2、并发问题，如果有两个人在很短得时间内访问同一个带有事务的接口，也会引发这样的问题</p>
 <p>在工作中遇到了此问题，我的解决方法为在Mybatis-plus的 <strong>实体.insert()</strong> 结束后返回此实体，在外层实体继续进行操作。</p>
 <h3><span id="20221123-组合唯一索引重复">20221123 - 组合唯一索引重复</span></h3><p>在完成需求后，因改动而触发了不少连锁的后续反应，在修复过程中，打算将数据库中的一个字段置为 Null ，但在 <strong>LambdaUpdateWrapper</strong> 时发生了如下报错：</p>
-<p><img src="../../../../../themes/themesparticlex/source/images/notes/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20221123111705.png"></p>
+<p><img src="/images/notes/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20221123111705.png"></p>
 <p>通过日志我们可以看到，报了 <strong>唯一索引重复</strong> 的错误。</p>
 <p>我随后对错误进行了排查，发现数据库的这张表除了主键，还设定了 <strong>联合唯一索引</strong> ，其中我修改的列是两个数据中唯一有差别的列，但被我置为 Null ，导致两条数据的 <strong>唯一组合索引重复</strong> ，因此报了此错误。</p>
 <blockquote>
@@ -371,7 +371,7 @@ private static List&lt;DictCodeDto&gt; getDictCodeDtoList(List&lt;DictCodeDto&gt
 &#125;
 </code></pre>
 <p><strong>成果</strong>（左为重构前，右为重构后）</p>
-<p><img src="../../../../../themes/themesparticlex/source/images/notes/ca52bc2a71421b11630e8c478cfa515.png" alt="ca52bc2a71421b11630e8c478cfa515"></p>
+<p><img src="/images/notes/ca52bc2a71421b11630e8c478cfa515.png" alt="ca52bc2a71421b11630e8c478cfa515"></p>
 <blockquote>
 <p><strong>Tips</strong></p>
 <ul>
@@ -463,7 +463,7 @@ private static List&lt;DictCodeDto&gt; getDictCodeDtoList(List&lt;DictCodeDto&gt
     gitalk.render("gitalk-container")
 </script>
 <style>
-    .md-toc{z-index:999;display: block; position: fixed; left: 40px; top: 90px;}
+    .md-toc{z-index:999;display: block; position: fixed; left: 30px; top: 90px;}
 </style>
 
     </body>
