@@ -54,17 +54,17 @@
         
         <a href="/archives">
             <i class="fa-solid fa-box-archive fa-fw"></i>
-            <span>&ensp;购买</span>
+            <span>&ensp;文章一览</span>
         </a>
         
         <a href="/categories">
             <i class="fa-solid fa-bookmark fa-fw"></i>
-            <span>&ensp;支持</span>
+            <span>&ensp;文章类别</span>
         </a>
         
         <a href="/tags">
             <i class="fa-solid fa-tags fa-fw"></i>
-            <span>&ensp;友链</span>
+            <span>&ensp;标签</span>
         </a>
         
     </div>
@@ -100,7 +100,7 @@
                     <div style="min-width: 20px; max-width: 50px; width: 10%">
                         <i class="fa-solid fa-box-archive fa-fw"></i>
                     </div>
-                    <div style="min-width: 100px; max-width: 150%; width: 20%">购买</div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">文章一览</div>
                 </div>
             </a>
             
@@ -109,7 +109,7 @@
                     <div style="min-width: 20px; max-width: 50px; width: 10%">
                         <i class="fa-solid fa-bookmark fa-fw"></i>
                     </div>
-                    <div style="min-width: 100px; max-width: 150%; width: 20%">支持</div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">文章类别</div>
                 </div>
             </a>
             
@@ -118,7 +118,7 @@
                     <div style="min-width: 20px; max-width: 50px; width: 10%">
                         <i class="fa-solid fa-tags fa-fw"></i>
                     </div>
-                    <div style="min-width: 100px; max-width: 150%; width: 20%">友链</div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">标签</div>
                 </div>
             </a>
             
@@ -138,15 +138,28 @@
             <span class="icon">
                 <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
             </span>
-            2022/10/26
+            2022/10/17
         </span>
         
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/很久之前的笔记/" style="color: #ff7d73">
+                    很久之前的笔记
+                </a>
+            </span>
+            
+        </span>
         
     </div>
     <div class="content" v-pre>
         <p>之前学习SpringBoot的笔记，整理到自己的博客中！</p>
 <span id="more"></span>
-<!-- toc -->
 <ul class="md-toc">
 <h2><span id="目录">📖目录：</span></h2>
 <li><a href="#ssm%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA">SSM环境搭建</a></li>
@@ -176,8 +189,8 @@
 <li><a href="#jasypt-%E5%8A%A0%E5%AF%86">Jasypt 加密</a></li>
 </ul>
 <!-- tocstop -->
-
-<h2><span id="ssm环境搭建">SSM环境搭建</span></h2><ul>
+<h2><span id="ssm环境搭建">SSM环境搭建</span></h2>
+<ul>
 <li>spring </li>
 <li>springmvc</li>
 <li>mybatis</li>
@@ -462,8 +475,7 @@ com.baizhi.Application : Started Application in 2.152 seconds (JVM running for 2
 <blockquote>
 <p><strong>注意:到这里项目环境已经搭建成功了,看看仅仅需要5分钟😄😁😁</strong></p>
 </blockquote>
-<pre><code> **建包并创建控制器**
-</code></pre>
+<p><strong>建包并创建控制器</strong></p>
 <pre><code class="java">//在项目中创建指定的包结构
 /*
      com
@@ -481,8 +493,7 @@ com.baizhi.Application : Started Application in 2.152 seconds (JVM running for 2
                   &#125;
                                          
 </code></pre>
-<pre><code> **访问项目** 
-</code></pre>
+<p><strong>访问项目</strong> </p>
 <pre><code class="markdown"># 注意: springboot的项目启动默认项目名
 - 访问路径:  http://localhost:8080/hello/hello
 </code></pre>
@@ -1792,7 +1803,7 @@ spring:
 <footer id="footer">
     <div class="footer-wrap">
         <div>
-            © 20xx - 2022 Yang的个人博客
+            © 20xx - 2023 Yang的个人博客
             <span class="footer-icon">
                 <i class="fa-solid fa-font-awesome fa-fw"></i>
             </span>
@@ -1860,11 +1871,9 @@ spring:
     })
     gitalk.render("gitalk-container")
 </script>
-
-
+<style>
+    .md-toc{z-index:999;display: block; position: fixed; left: 80px; top: 20px;}
+</style>
     </body>
 
-    <style>
-        .md-toc{z-index:999;display: block; position: fixed; left: 80px; top: 20px;}
-    </style>
 </html>

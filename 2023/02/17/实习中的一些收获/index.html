@@ -1,0 +1,470 @@
+<!--
+ * @Author: error: git config user.name && git config user.email & please set dead value or install git
+ * @Date: 2022-10-16 17:15:32
+ * @LastEditors: error: git config user.name && git config user.email & please set dead value or install git
+ * @LastEditTime: 2022-10-16 22:40:59
+ * @FilePath: \blog-vue\themes\themesparticlex\layout\layout.ejs
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>实习中的一些收获与问题 | Yang的个人博客</title>
+        <meta name="author" content="CarSon Yang">
+        <meta name="description" content="">
+        <meta name="keywords" content="HEXO | CMS | CRM">
+        <link rel="icon" href="/images/touxiang.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.2.0/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+        <script src="https://cdn.staticfile.org/animejs/3.2.1/anime.min.js"></script>
+    <meta name="generator" content="Hexo 5.4.2"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Yang的个人博客</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;主页</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;关于我</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;文章一览</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;文章类别</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;标签</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Yang的个人博客</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">主页</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">关于我</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">文章一览</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">文章类别</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">标签</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1>实习中的一些收获与问题 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2023/2/17
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/日常笔记/" style="color: #ff7d73">
+                    日常笔记
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/实习/" style="color: #ffa2c4">
+                    实习
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/经验/" style="color: #ff7d73">
+                    经验
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/BUG/" style="color: #ff7d73">
+                    BUG
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    <div class="content" v-pre>
+        <p>自9月初实习以来碰到的一些比较有趣的BUG与方法</p>
+<span id="more"></span>
+<h2><span id="目录">📖目录：</span></h2><!-- toc -->
+
+<ul class="md-toc">
+<li><a href="#%E6%A8%A1%E5%9D%97%E5%94%AE%E5%89%8D%E9%9B%B6%E5%94%AE%E8%AE%A2%E5%8D%95%E7%AE%A1%E7%90%86">模块：售前零售订单管理</a><ul>
+<li><a href="#20221108-excel%E6%89%B9%E9%87%8F%E5%AF%BC%E5%85%A5">20221108 - Excel批量导入</a></li>
+<li><a href="#20221109-%E5%AF%BC%E5%87%BA%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AF%E8%87%B3excel">20221109 - 导出错误信息至excel</a></li>
+<li><a href="#20221113-%E5%90%8C%E4%B8%80%E4%BA%8B%E7%89%A9%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%8E%E6%97%A0%E6%B3%95%E6%9F%A5%E8%AF%A2%E5%88%B0">20221113 - 同一事物，插入数据库后无法查询到</a></li>
+<li><a href="#20221123-%E7%BB%84%E5%90%88%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95%E9%87%8D%E5%A4%8D">20221123 - 组合唯一索引重复</a></li>
+<li><a href="#20221125-spring%E4%BA%8B%E5%8A%A1%E5%BC%82%E5%B8%B8rollback-only">20221125 - spring事务异常rollback-only</a></li>
+<li><a href="#20221213-%E5%8F%8D%E5%B0%84%E5%B7%A5%E5%85%B7%E7%B1%BB">20221213 - 反射工具类</a></li>
+</ul>
+</li>
+<li><a href="#%E6%A8%A1%E5%9D%97%E4%B8%AD%E5%8F%B0%E6%9C%8D%E5%8A%A1%E5%AD%97%E5%85%B8%E7%9B%B8%E5%85%B3">模块：中台服务（字典相关）</a><ul>
+<li><a href="#20221202-%E9%87%8D%E6%9E%84%E7%BA%A7%E8%81%94%E5%AD%97%E5%85%B8sql">20221202 - 重构级联字典SQL</a></li>
+</ul>
+</li>
+<li><a href="#%E6%8F%92%E4%BB%B6">插件</a></li>
+</ul>
+<!-- tocstop -->
+
+<h2><span id="模块售前零售订单管理">模块：售前零售订单管理</span></h2><p>负责模块：销售订单 – 经理审核 – 财务审核 – 订单配车 – 生成PDI任务 – 车辆出库 – 交车确认 – 实销上报 – 车牌上报</p>
+<h3><span id="20221108-excel批量导入">20221108 - Excel批量导入</span></h3><p><strong>Collections.singletonList</strong></p>
+<p>在做excel表批量导入时，需要使用实体类频繁查询数据库，在创建实体类时我使用了<code>Collections.singletonList</code>，它被限定只被分配一个<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%86%85%E5%AD%98&spm=1001.2101.3001.7020">内存</a>空间，也就是只能存放一个元素的内容。这样做的好处就是不会造成内存的浪费，不像<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=ArrayList&spm=1001.2101.3001.7020"><code>ArrayList</code></a>这样的类，不管你是需要多少内存，初始化就会被分配一定空间的内存，就会导致多余内存的浪费。</p>
+<p>例子：<img src="F:\资料\typora笔记\yyy\微信截图_20221103104448.png" alt="微信截图_20221103104448"></p>
+<p><strong>优化批量导入时的校验</strong></p>
+<p>excel表中条数被限制在100条以内，为了缓解数据库压力，在校验时尽量少去查询数据库及feign调用字典。</p>
+<p>在解析excel表后定义数据Map与字典Map，将其作为入参进入循环校验方法中，在首次进入时查询符合条件的所有数据并存入Map中，再后续操作时跳过查询数据库，直接Map.contanis(数据)判断是否包含即可。</p>
+<p>例子：<img src="F:\资料\typora笔记\yyy\微信截图_20221110180708.png" alt="微信截图_20221110180708"></p>
+<h3><span id="20221109-导出错误信息至excel">20221109 - 导出错误信息至excel</span></h3><pre><code class="java">@RequestMapping(value = &quot;/outPutExcel&quot;, method = RequestMethod.GET)
+@ResponseBody
+public void outPutExcel(HttpServletResponse response) &#123;
+   response.reset();
+   //设置浏览器下载的格式，并以当前时间的毫秒数命名
+   response.setHeader(&quot;Content-Disposition&quot;, &quot;attachment;Filename=&quot; + System.currentTimeMillis() + &quot;.xls&quot;);
+   response.setContentType(&quot;application/msexcel&quot;);
+   HSSFWorkbook wb = new HSSFWorkbook();
+   HSSFSheet sheet = wb.createSheet(&quot;sheet0&quot;);
+   //设置表格第一行的列名
+   // 获得表格第一行
+   HSSFRow rows = sheet.createRow(0);
+   // 根据需要给第一行每一列设置标题
+   rows.createCell(0).setCellValue(&quot;序号&quot;);
+   rows.createCell(1).setCellValue(&quot;行号&quot;);
+   rows.createCell(2).setCellValue(&quot;vin&quot;);
+   rows.createCell(3).setCellValue(&quot;错误信息&quot;);
+
+   //循环数据库查出来的数据集，对应每一列赋值
+   //此处list.size()本不应该-1，因为同事在list集合里追加了另一条数据，导致报错故将其去除
+   for (int i = 0; i &lt; 5; i++) &#123;
+      rows = sheet.createRow(i + 1);
+      rows.createCell(0).setCellValue(1);
+      rows.createCell(1).setCellValue(13);
+      rows.createCell(2).setCellValue(&quot;XXXX1231233&quot;);
+      rows.createCell(3).setCellValue(&quot;测试错误信息&quot;);
+   &#125;
+   try &#123;
+      OutputStream oStream = response.getOutputStream();
+      wb.write(oStream);
+      oStream.flush();
+   &#125; catch (Exception e) &#123;
+      throw new ServiceBizException(&quot;下载失败&#123;&#125;&quot;,e);
+   &#125;
+&#125;
+</code></pre>
+<h3><span id="20221113-同一事物插入数据库后无法查询到">20221113 - 同一事物，插入数据库后无法查询到</span></h3><p>MySQL已经插入了一条数据，但是再查询的时候查不出来的原因：</p>
+<p>1、因为插入的SQL和查询出来的SQL是在<strong>同一个方式事务中</strong>执行，只有提交了事务，数据才会保存到硬盘中，然后才可以查询得出来</p>
+<p>2、并发问题，如果有两个人在很短得时间内访问同一个带有事务的接口，也会引发这样的问题</p>
+<p>在工作中遇到了此问题，我的解决方法为在Mybatis-plus的 <strong>实体.insert()</strong> 结束后返回此实体，在外层实体继续进行操作。</p>
+<h3><span id="20221123-组合唯一索引重复">20221123 - 组合唯一索引重复</span></h3><p>在完成需求后，因改动而触发了不少连锁的后续反应，在修复过程中，打算将数据库中的一个字段置为 Null ，但在 <strong>LambdaUpdateWrapper</strong> 时发生了如下报错：</p>
+<p><img src="F:\资料\typora笔记\yyy\微信图片_20221123111705.png"></p>
+<p>通过日志我们可以看到，报了 <strong>唯一索引重复</strong> 的错误。</p>
+<p>我随后对错误进行了排查，发现数据库的这张表除了主键，还设定了 <strong>联合唯一索引</strong> ，其中我修改的列是两个数据中唯一有差别的列，但被我置为 Null ，导致两条数据的 <strong>唯一组合索引重复</strong> ，因此报了此错误。</p>
+<blockquote>
+<p>MUL：多列组合唯一约束，如ID,NAME 两个字段组合保持数据唯一。其中单个字段可重复，可以为null。</p>
+</blockquote>
+<h3><span id="20221125-spring事务异常rollback-only">20221125 - spring事务异常rollback-only</span></h3><p><strong>问题出现</strong></p>
+<p>在外层调用内层事务时，内层事务异常被捕捉后报了 <code>Transaction rolled back because it has been marked as rollback-only</code></p>
+<p><strong>问题分析</strong></p>
+<p>业务逻辑上存在事务嵌套的情况，内层事务在一定场景下抛出了异常，但是却被外层事务用try–catch接住了。于是在内层事务异常的情况下，外层事务继续执行了。</p>
+<p><strong>原因解释</strong></p>
+<p>当spring开启事务时，如果不修改propagation的参数，则默认是<strong>propagation.REQUIRED</strong>。即如果有没有事务则新启一个事务，如果已经存在事务则加入这个事务。<br>当内层事务异常的情况下，如果是这种传播方式，正常来讲是需要回滚的，但是spring给内层事务做了一个rollback的标记。所以当内层事务抛出的异常被外层try—–catch时，外层事务正常执行，但在最后提交的时候发现，内层被标记了 <strong>rollback</strong> ，所以就会抛出<code>Transaction rolled back because it has been marked as rollback-only</code>这个异常信息。</p>
+<p><strong>问题解决</strong></p>
+<ul>
+<li>如果我们需要内层异常的情况下，回滚整个事务，可以让内层事务抛出的异常被外层事务的try—-catch处理，再抛出新的异常，或者外层不通过try—catch处理这个异常。</li>
+<li>当然如果内层事务没有复用过，只是在这个地方使用，直接把内层的事务去了，让他和外层合并成一个事务也能解决这个问题。</li>
+<li>如果内层事务异常的情况下只回滚内层事务，修改内层事务的事务传播方式<code>@Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRES_NEW)</code></li>
+</ul>
+<h3><span id="20221213-反射工具类">20221213 - 反射工具类</span></h3><pre><code class="java">// 子类继承父类的字段也加上并处理
+Class&lt;?&gt; temp = obj.getClass();
+Field[] fieldsAll = null;
+
+while(temp!=null)&#123;
+    Field[] f = temp.getDeclaredFields();
+    fieldsAll = ArrayUtils.addAll(fieldsAll,f);
+    temp = temp.getSuperclass();
+&#125;
+</code></pre>
+<p>学习链接：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/ldq2016/p/6834643.html">Java反射之Field用法 - 一点点征服 - 博客园 (cnblogs.com)</a></p>
+<h2><span id="模块中台服务字典相关">模块：中台服务（字典相关）</span></h2><h3><span id="20221202-重构级联字典sql">20221202 - 重构级联字典SQL</span></h3><p><strong>问题出现</strong></p>
+<pre><code class="sql">SELECT
+        max(ID) ID,
+        PARENT_ID,
+        PARENT_ID as `CODE_ID`,
+        max(APP_ID) APP_ID,                     
+        PARENT_ID as `TYPE`,                    
+        max(TYPE_NAME) TYPE_NAME,              
+        GROUP_CONCAT(&#39;v:&#39;,CODE_ID,&#39;,t:&#39;,CODE_CN_DESC ORDER by `NUM` SEPARATOR &#39;;&#39;) as `CODE_CN_DESC`, 
+        &quot;&quot; as CODE_EN_DESC,                     
+        &quot;&quot; as NUM,                              
+        max(STATUS) STATUS,                     
+        0 as IS_DELETED,
+        null AS CREATE_TIME,
+        null AS UPDATE_TIME,
+        null AS createBy,
+        null AS updateBy
+        FROM
+        tc_cascad_code
+        where 1=1
+        and not exists (select 1 from tc_cascad_code where CODE_ID=-999 and IS_DELETED=1)
+        and IS_DELETED =0
+        and PARENT_ID &lt;&gt; -1
+        and STATUS = 10011001
+        group by
+        PARENT_ID
+        order by `CODE_ID` asc
+</code></pre>
+<p><strong>报错信息：</strong><code>Row 241 was cut by GROUP_CONCAT()</code></p>
+<p><strong>问题分析</strong></p>
+<p>以上为原本SQL语句，使用GROUP_CONCAT对字典进行<strong>级联操作</strong>，但字段上限为<strong>1024</strong>，一旦超过此范围会被<strong>自动切割</strong>，这是不行的，所以我们只能使用Java来处理所有的数据。</p>
+<p><strong>解决思路</strong></p>
+<ol>
+<li>取消SQL语句中的gourp相关的方法是必然的，先将全部数据先查询出来。</li>
+<li>既然是重构，当然要以相同的<strong>PARENT_ID</strong>为一组，由此第一时间想到了HashMap，但HashMap还不够，因为同样的key在put时会覆盖之前的value，所以我们使用 <strong>LinkedMultiValueMap</strong> 最为适合，一键多值。</li>
+<li>有了存放的容器，我们还需键来调用此容器，所以创建<strong>Set集合</strong>在赋值的途中额外给集合也赋上<strong>PARENT_ID</strong>，这样就得到了键的集合，创建StringBuilder拼接之前SQL中GROUP_CONCAT的字符串。</li>
+<li>通过Stream流排序并循环Set集合，通过<code>get(key)</code>的方式获取到每一个相对应键的字典集合，new实体作当前集合的List最终的载体。</li>
+<li>使用Stream流内循环对应的字典集合，通过<code>.sorted(Comparator.comparing(DictCodeDto::getNum))</code>实现以num排序，在循环中用StringBuilder拼接每一个实体所需的值，直到内循环结束，将StringBuiler赋给之前new好的载体，随后add到最终结果集合中。</li>
+</ol>
+<p><strong>代码实现</strong></p>
+<pre><code class="java">@NotNull
+private static List&lt;DictCodeDto&gt; getDictCodeDtoList(List&lt;DictCodeDto&gt; tcCasCodesSql) &#123;
+    // 思路1：tcCasCodesSql为查询到的所有字典
+    if (StringUtils.isNullOrEmpty(tcCasCodesSql)) &#123;
+        return Collections.emptyList();
+    &#125;
+    // 思路2：一键多值
+    MultiValueMap&lt;Integer, DictCodeDto&gt; tcCasCodesMap = new LinkedMultiValueMap&lt;&gt;();
+    // 思路3：存键
+    HashSet&lt;Integer&gt; parentIdSet = new HashSet&lt;&gt;();
+    // 拼接中文字典描述
+    StringBuilder sb = new StringBuilder();
+    List&lt;DictCodeDto&gt; tcCasCodes = new ArrayList&lt;&gt;();
+    tcCasCodesSql.forEach(tcCasCode -&gt; &#123;
+        tcCasCodesMap.add(tcCasCode.getParentId(), tcCasCode);
+        parentIdSet.add(tcCasCode.getParentId());
+    &#125;);
+    // 思路4：根据键循环整个键的List
+    parentIdSet.stream().sorted().forEach(parentId -&gt; &#123;
+        DictCodeDto dictCodeDto = new DictCodeDto();
+        List&lt;String&gt; maxTypeName = new ArrayList&lt;&gt;();
+        List&lt;String&gt; maxAppId = new ArrayList&lt;&gt;();
+        sb.delete(0, sb.length());
+        // 取到每个父级id下的子集合
+        List&lt;DictCodeDto&gt; dictCodeList = tcCasCodesMap.get(parentId);
+        // 存放每套字典的ParentId
+        final Integer[] temp = &#123;0&#125;;
+        // 思路5：内循环List
+        dictCodeList.stream()
+            //GROUP_CONCAT(&#39;v:&#39;,CODE_ID,&#39;,t:&#39;,CODE_CN_DESC ORDER by `NUM` SEPARATOR &#39;;&#39;) as `CODE_CN_DESC`,
+            .sorted(Comparator.comparing(DictCodeDto::getNum))
+            .forEach(dictCode -&gt; &#123;
+                sb.append(&quot;v:&quot; + dictCode.getCodeId() + &quot;,t:&quot; + dictCode.getCodeCnDesc() + &quot;;&quot;);
+                temp[0] = dictCode.getParentId();
+                maxAppId.add(dictCode.getAppId());
+                maxTypeName.add(dictCode.getTypeName());
+            &#125;);
+        sb.deleteCharAt(sb.length()-1);
+        dictCodeDto.setCodeCnDesc(sb.toString());
+        dictCodeDto.setCodeId(temp[0]);
+        dictCodeDto.setParentId(temp[0]);
+        dictCodeDto.setType(temp[0]);
+        dictCodeDto.setAppId(Collections.max(maxAppId));
+        dictCodeDto.setTypeName(Collections.max(maxTypeName));
+        dictCodeDto.setCodeEnDesc(&quot;&quot;);
+        dictCodeDto.setNum(0);
+        tcCasCodes.add(dictCodeDto);
+    &#125;);
+    return tcCasCodes;
+&#125;
+</code></pre>
+<p><strong>成果</strong>（左为重构前，右为重构后）</p>
+<p><img src="F:\资料\typora笔记\yyy\ca52bc2a71421b11630e8c478cfa515.png" alt="ca52bc2a71421b11630e8c478cfa515"><br><img src="themes%5Cthemesparticlex%5Csource%5Cimages%5Cnotes%5Cca52bc2a71421b11630e8c478cfa515.png" alt="ca52bc2a71421b11630e8c478cfa515"></p>
+<blockquote>
+<p><strong>Tips</strong></p>
+<ul>
+<li><code>.sorted(Comparator.comparing(DictCodeDto::getNum))</code>：根据实体类的某个字段排序。</li>
+<li><code>MultiValueMap&lt;Integer, DictCodeDto&gt; tcCasCodesMap = new LinkedMultiValueMap&lt;&gt;();</code>：一键多值的Map集合。</li>
+</ul>
+</blockquote>
+<h2><span id="插件">插件</span></h2><p>JRebel 非常好用！可手动设置每N分钟自动构建，Ctrl + F9 即可手动构建，<strong>无需重启</strong>也能更新。</p>
+
+    </div>
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.css">
+    <div id="comment">
+        <div id="gitalk-container"></div>
+    </div>
+    
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 20xx - 2023 Yang的个人博客
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @CarSon Yang
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        <canvas
+            id="fireworks"
+            style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:2147483647"
+        ></canvas>
+        <script src="/js/fireworks.js"></script>
+        <canvas
+            id="background" 
+            style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:-1"
+        ></canvas>
+        <script src="/js/background.js"></script>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.1.3/pixi.min.js"></script> -->
+        <!-- <div id="L2dCanvas"></div>
+        <script src="/js/live2d.min.js"></script>
+        <script src="/css/live2d.css"></script>
+        <script>
+            var v = new Viewer({
+                width: 240,
+                height: 420,
+                left: "0",
+                bottom: "0",
+                basePath: "/model",
+                // role: "dafeng_2",
+                // role: "zhala_2",
+                mobile: true,
+            });
+        </script> -->
+        
+<script src="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.js"></script>
+<script>
+    var clientID = "3b8a78a17a8de3d483eb", clientSecret = "ca2df322376933273e049a9f3e0c1d27d0e54b53";
+    
+    const gitalk = new Gitalk({
+        clientID: clientID,
+        clientSecret: clientSecret,
+        repo: "blogComment",
+        owner: "Honkey-y",
+        admin: ["Honkey-y"],
+        language: "zh-CN",
+        id: location.pathname,
+        distractionFreeMode: false,
+        
+        proxy: "https://yangkblog.herokuapp.com/https://github.com/login/oauth/access_token"
+        
+    })
+    gitalk.render("gitalk-container")
+</script>
+<style>
+    .md-toc{z-index:999;display: block; position: fixed; left: 80px; top: 20px;}
+</style>
+
+    </body>
+</html>

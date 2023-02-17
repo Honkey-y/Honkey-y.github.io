@@ -12,7 +12,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-        <title>Archives | Yang的个人博客</title>
+        <title>无法卸载vue2.x提示up to Date | Yang的个人博客</title>
         <meta name="author" content="CarSon Yang">
         <meta name="description" content="">
         <meta name="keywords" content="HEXO | CMS | CRM">
@@ -129,200 +129,94 @@
                     </div>
                     <div id="main">
                         
-<div id="archives">
-    
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2023/2/17</div>
-            <a href="/2023/02/17/实习中的一些收获/">
-                <h3>实习中的一些收获与问题</h3>
-            </a>
-            <div class="info">
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
-                    </span>
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/日常笔记/" style="color: #ffa2c4">
-                            日常笔记
-                        </a>
-                    </span>
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/实习/" style="color: #00a596">
-                            实习
-                        </a>
-                    </span>
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/经验/" style="color: #03a9f4">
-                            经验
-                        </a>
-                    </span>
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/BUG/" style="color: #ffa2c4">
-                            BUG
-                        </a>
-                    </span>
-                    
+<div class="article">
+    <div>
+        <h1>无法卸载vue2.x提示up to Date </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/5/11
+        </span>
+        
+        <span class="category">
+            <a href="/categories/Bug解决/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
                 </span>
+                Bug解决
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
                 
-            </div>
-        </div>
+                <a href="/tags/vue/" style="color: #ff7d73">
+                    vue
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Bug/" style="color: #03a9f4">
+                    Bug
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/日常笔记/" style="color: #03a9f4">
+                    日常笔记
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    <div class="content" v-pre>
+        <p>从Vue2.x转到Vue3.x发生的小问题</p>
+<span id="more"></span>
+<h2><span id="目录">📖目录：</span></h2><!-- toc -->
+
+<ul>
+<li><a href="#%E9%97%AE%E9%A2%98%E4%B8%8D%E7%AE%A1%E6%98%AFyarn-npm-cnpm%E9%83%BD%E6%97%A0%E6%B3%95%E5%8D%B8%E8%BD%BDvue296">问题：不管是yarn、npm、cnpm都无法卸载vue2.9.6</a></li>
+<li><a href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95">解决方法</a></li>
+</ul>
+<!-- tocstop -->
+
+<h2><span id="问题不管是yarn-npm-cnpm都无法卸载vue296">问题：不管是yarn、npm、cnpm都无法卸载vue2.9.6</span></h2><p>今日在巩固Vue知识，做demo时打算换做vue3.x版本，却发现卸载全局vue-cli时一直失效</p>
+<pre><code class="bash">&gt;  npm uninstall vue-cli
+
+up to date, audited 1 package in 328ms
+found 0 vulnerabilities
+
+&gt;  vue -V
+2.9.6
+</code></pre>
+<p>如上，我在网上搜索了很多资料，甚至删除了c盘内的vue-cli文件，但发现都无用。</p>
+<h2><span id="解决方法">解决方法</span></h2><ol>
+<li>删除 <strong>.npmc</strong> 文件，位置在 <strong>C:\Users\电脑用户名</strong></li>
+<li>执行 <strong>npm uninstall vue-cli -g</strong></li>
+<li>这时再次执行 <strong>vue-V</strong>，会发现版本号消失了</li>
+<li><strong>npm install -g @vue/cli</strong></li>
+<li>（若提示npm ERR code ERR_SOCKET_TIMEOUT npm ERR）执行 <strong>npm install rxjs</strong>，再次执行第四步</li>
+<li>执行<strong>vue-V</strong>查看vue新版本是否安装成功</li>
+</ol>
+
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2022/10/17</div>
-            <a href="/2022/10/17/SpringBoot笔记/">
-                <h3>SpringBoot笔记</h3>
-            </a>
-            <div class="info">
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
-                    </span>
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/很久之前的笔记/" style="color: #00a596">
-                            很久之前的笔记
-                        </a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.css">
+    <div id="comment">
+        <div id="gitalk-container"></div>
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2022/7/16</div>
-            <a href="/2022/07/16/部署至Git-Pages/">
-                <h3>部署至Git Pages</h3>
-            </a>
-            <div class="info">
-                
-                <span class="category">
-                    <a href="/categories/项目部署/">
-                        <span class="icon">
-                            <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
-                        </span>
-                        项目部署
-                    </a>
-                </span>
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
-                    </span>
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/日常笔记/" style="color: #00bcd4">
-                            日常笔记
-                        </a>
-                    </span>
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/git-pages/" style="color: #ffa2c4">
-                            git pages
-                        </a>
-                    </span>
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/部署/" style="color: #03a9f4">
-                            部署
-                        </a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
-    </div>
-    
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2022/5/11</div>
-            <a href="/2022/05/11/text1/">
-                <h3>无法卸载vue2.x提示up to date</h3>
-            </a>
-            <div class="info">
-                
-                <span class="category">
-                    <a href="/categories/Bug解决/">
-                        <span class="icon">
-                            <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
-                        </span>
-                        Bug解决
-                    </a>
-                </span>
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
-                    </span>
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/vue/" style="color: #00a596">
-                            vue
-                        </a>
-                    </span>
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/Bug/" style="color: #ff7d73">
-                            Bug
-                        </a>
-                    </span>
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/日常笔记/" style="color: #00bcd4">
-                            日常笔记
-                        </a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
-    </div>
-    
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2022/1/26</div>
-            <a href="/2022/01/26/hello-world/">
-                <h3>Hello World</h3>
-            </a>
-            <div class="info">
-                
-                
-            </div>
-        </div>
-    </div>
     
 </div>
                          
@@ -378,6 +272,26 @@
             });
         </script> -->
         
+<script src="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.js"></script>
+<script>
+    var clientID = "3b8a78a17a8de3d483eb", clientSecret = "ca2df322376933273e049a9f3e0c1d27d0e54b53";
+    
+    const gitalk = new Gitalk({
+        clientID: clientID,
+        clientSecret: clientSecret,
+        repo: "blogComment",
+        owner: "Honkey-y",
+        admin: ["Honkey-y"],
+        language: "zh-CN",
+        id: location.pathname,
+        distractionFreeMode: false,
+        
+        proxy: "https://yangkblog.herokuapp.com/https://github.com/login/oauth/access_token"
+        
+    })
+    gitalk.render("gitalk-container")
+</script>
+
 
     </body>
 </html>
